@@ -1,0 +1,36 @@
+@use "/src/utilities/theme";
+
+.text {
+  display: flex;
+  position: relative;
+  height: 100%;
+  width: 40vw;
+  margin: auto;
+  overflow: hidden;
+  z-index: 1;
+  &Scroll {
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: flex-start;
+    white-space: nowrap;
+    transition: all 1s ease;
+    & > div {
+      display: flex;
+      animation: TextScroll 33s infinite linear;
+    }
+    p {
+      margin: 0;
+      transition: all 2s ease;
+    }
+  }
+}
+
+@keyframes TextScroll {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

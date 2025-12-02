@@ -1,0 +1,23 @@
+@use "utilities/theme";
+
+html {
+  height: 100%;
+  width: 100%;
+
+  background-color: theme.$bg-color;
+
+  font-family: Helvetica;
+  text-decoration: none;
+  font-size: 1rem;
+
+  body {
+    & > div {
+      height: 100%;
+      width: 100%;
+      margin: auto;
+    }
+    height: 100%;
+    width: 100%;
+    margin: auto;
+  }
+}

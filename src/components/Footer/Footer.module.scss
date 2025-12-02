@@ -1,0 +1,30 @@
+@use "/src/utilities/theme";
+
+.footer {
+  height: 60px;
+  width: 100%;
+
+  padding: 0 20px;
+
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  background-color: theme.$blue-4;
+  color: theme.$bg-color;
+
+  & > div {
+    width: 100%;
+  }
+
+  .bug {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}

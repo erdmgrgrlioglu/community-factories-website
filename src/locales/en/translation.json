@@ -1,0 +1,14 @@
+{
+  "page": {
+    "name": "CommunityFactories®",
+    "welcome": {
+      "title": "See what your communities are producing in real time"
+    },
+    "communities": {
+      "title": "Communities"
+    },
+    "factories": {
+      "title": "Factories"
+    }
+  }
+}

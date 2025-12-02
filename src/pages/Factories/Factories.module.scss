@@ -1,0 +1,29 @@
+@use "/src/utilities/theme";
+
+.page {
+  height: calc(100% - 120px);
+  width: 96%;
+  padding: 60px 0px;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .expand {
+    height: 100%;
+    width: 100%;
+    .line {
+      position: absolute;
+      z-index: -1;
+    }
+  }
+  .stem {
+    width: 100%;
+    color: theme.$blue-4;
+    margin: 20px 0;
+    font-weight: 800;
+    border-bottom: 2px solid;
+    border-color: theme.$blue-4;
+  }
+}

@@ -1,0 +1,38 @@
+@use "/src/utilities/theme";
+
+.card {
+  border: 2px solid transparent;
+  font-weight: 800;
+  padding: 10px;
+
+  .title {
+    width: 100%;
+    border-bottom: 2px solid;
+    border-color: theme.$blue-4;
+    text-transform: uppercase;
+  }
+
+  color: theme.$blue-4;
+  border-color: theme.$blue-4;
+  background-color: theme.$bg-color;
+
+  transition: color 100ms ease-in-out, background-color 100ms ease-in-out,
+    border-color 100ms ease-in-out, box-shadow 100ms ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    color: theme.$bg-color;
+    border-color: theme.$blue-4;
+    background-color: theme.$blue-4;
+    .title {
+      border-color: theme.$bg-color;
+    }
+  }
+
+  &:disabled {
+    color: theme.$def-gray;
+    border-color: theme.$def-gray;
+    background-color: theme.$bg-color;
+    cursor: not-allowed;
+  }
+}
