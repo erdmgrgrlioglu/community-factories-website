@@ -11,6 +11,13 @@
   align-items: center;
   justify-content: center;
 
+  .backdrop {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 0;
+  }
+
   .box {
     height: 80%;
     width: 90%;
@@ -26,9 +33,21 @@
     font-weight: 800;
 
     .title {
+      width: inherit;
       text-align: center;
       text-transform: uppercase;
-      margin: 20px;
+      margin-top: 20px;
+
+      position: fixed;
+      z-index: 2;
+    }
+
+    .fill {
+      height: inherit;
+      width: inherit;
+
+      position: fixed;
+      z-index: 2;
     }
   }
 }

@@ -94,6 +94,7 @@ export default function FactoriesPage() {
   //<svg className={classes.line} width="500" height="500">
   //  <line x1="50" y1="50" x2="350" y2="350" stroke="black" />
   //</svg>
+
   return !ready ? (
     <div>Loading...</div>
   ) : (
@@ -114,7 +115,10 @@ export default function FactoriesPage() {
                 onClick={(o) => setOverlay(o)}
               />
             </div>
-            <div className={"grid-stack-item"}>
+            <div
+              className={"grid-stack-item"}
+              onClick={() => setOverlay({ objectPath: "tooth-brush.obj" })}
+            >
               <Card
                 className={"grid-stack-item-content"}
                 communities={[
@@ -138,7 +142,7 @@ export default function FactoriesPage() {
                   "ccc",
                   "ddd",
                 ]}
-                title="Factory Test"
+                title="Toothbrush"
               />
             </div>
             {cards
