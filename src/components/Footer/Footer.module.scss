@@ -7,7 +7,7 @@
   padding: 0 20px;
 
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   bottom: 0;
 
   display: flex;
@@ -17,14 +17,16 @@
   background-color: theme.$blue-4;
   color: theme.$bg-color;
 
-  & > div {
-    width: 100%;
-  }
-
   .bug {
     cursor: pointer;
     display: flex;
     flex-direction: row;
     align-items: center;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .footer {
+    display: none;
   }
 }

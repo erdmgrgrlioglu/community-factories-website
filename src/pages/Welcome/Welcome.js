@@ -1,20 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-
-import { Button, Renderer } from "../../components/index";
+import { Button, Renderer, Globe } from "../../components/index";
 
 import classes from "./Welcome.module.scss";
-import { useNavigate } from "react-router-dom";
-import Globe from "../../components/meshes/Globe/Globe";
 
 export default function WelcomePage() {
-  const { t, ready } = useTranslation();
   const navigate = useNavigate();
+  const { t, ready } = useTranslation();
 
-  if (!ready) {
-    return <div>Loading...</div>;
-  }
-
-  return (
+  return !ready ? (
+    <div>Loading...</div>
+  ) : (
     <>
       <div className={classes.overlay}>
         <div className={classes.bold}>{t("page.welcome.title")}</div>

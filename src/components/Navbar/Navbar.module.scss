@@ -7,7 +7,7 @@
   padding: 0 20px;
 
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   top: 0;
 
   display: flex;
@@ -28,5 +28,13 @@
 
   .time {
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .header {
+    .time {
+      display: none;
+    }
   }
 }

@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useCircle } from "@react-three/p2";
-import {
-  CSS2DRenderer,
-  CSS2DObject,
-} from "three/addons/renderers/CSS2DRenderer.js";
+//import {
+//  CSS2DRenderer,
+//  CSS2DObject,
+//} from "three/addons/renderers/CSS2DRenderer.js";
 
 export default function Circle(props) {
   const [color, setColor] = useState("#00aeef");
@@ -13,8 +13,14 @@ export default function Circle(props) {
     position: props.position,
     args: props.args,
   }));
-  const labelRef = useRef();
-  const label = new CSS2DObject(labelRef.current);
+
+  //const labelRef = useRef();
+  //const label = new CSS2DObject(labelRef.current);
+  //labelRenderer = new CSS2DRenderer();
+  //labelRenderer.setSize(window.innerWidth, window.innerHeight);
+  //labelRenderer.domElement.style.position = "absolute";
+  //labelRenderer.domElement.style.top = "0px";
+  //document.body.appendChild(labelRenderer.domElement);
 
   function GravitateToCenter(mass, pos = []) {
     var dist = Math.pow(
@@ -51,7 +57,8 @@ export default function Circle(props) {
         <circleGeometry attach="geometry" args={props.args} />
         <meshBasicMaterial attach="material" color={color} doubleSide={true} />
       </mesh>
-      <div ref={labelRef}>hola!</div>
     </>
   );
 }
+
+//<div ref={labelRef}>hola!</div>

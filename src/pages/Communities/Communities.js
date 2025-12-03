@@ -1,16 +1,16 @@
-import { useTranslation } from "react-i18next";
-import { Renderer } from "../../components";
-import { Circle } from "../../components/meshes";
-import classes from "./Communities.module.scss";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Renderer, Circle } from "../../components";
+
+import classes from "./Communities.module.scss";
 
 export default function CommunitiesPage() {
   const { t, ready } = useTranslation();
   const [communities, setCommunities] = useState([]);
 
-  if (!ready) return <div>Loading...</div>;
-
-  return (
+  return !ready ? (
+    <div>Loading...</div>
+  ) : (
     <>
       <div className={classes.overlay}>
         <button
@@ -31,7 +31,7 @@ export default function CommunitiesPage() {
         objects={communities.map((c) => (
           <Circle
             key={c.id}
-            args={[c.radius, c.radius > 0.5 ? Math.round(c.radius * 20) : 10]}
+            args={[c.radius, c.radius > 0.5 ? Math.round(c.radius * 40) : 20]}
             mass={c.id / 5}
             position={[
               (c.id * (Math.random() > 0.5 ? -1 : 1) * Math.random()) / 5,

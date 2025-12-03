@@ -1,7 +1,7 @@
 @use "/src/utilities/theme";
 
 .page {
-  height: calc(100% - 120px);
+  height: calc(min-content - 120px);
   width: 96%;
   padding: 60px 0px;
   margin: auto;
@@ -10,20 +10,38 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   .expand {
     height: 100%;
     width: 100%;
-    .line {
-      position: absolute;
-      z-index: -1;
-    }
   }
+
+  .scale {
+    --global-scale-x: 1;
+    --global-scale-y: 1;
+    width: calc(100% / var(--global-scale-x));
+    height: calc(100% / var(--global-scale-y));
+    transform: //translate(50px, 100px)
+      scale(var(--global-scale-x), var(--global-scale-y));
+    transform-origin: 0 0;
+  }
+
+  .row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
   .stem {
     width: 100%;
-    color: theme.$blue-4;
     margin: 20px 0;
-    font-weight: 800;
+
+    display: flex;
+    flex-direction: column-reverse;
+
     border-bottom: 2px solid;
+    font-weight: 800;
     border-color: theme.$blue-4;
+    color: theme.$blue-4;
   }
 }

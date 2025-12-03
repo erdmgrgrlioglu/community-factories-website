@@ -1,0 +1,42 @@
+@use "/src/utilities/theme";
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .box {
+    height: 80%;
+    width: 90%;
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+    border: 2px solid theme.$blue-4;
+    color: theme.$blue-4;
+    background-color: theme.$bg-color;
+
+    overflow: hidden !important;
+
+    font-weight: 800;
+
+    .title {
+      text-align: center;
+      text-transform: uppercase;
+      margin: 20px;
+    }
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .overlay {
+    .box {
+      margin-bottom: 0px;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@use "/src/utilities/theme";
+
+.globe {
+  height: 20%;
+
+  .number {
+    height: 150px;
+    width: 300px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    z-index: 1;
+    div {
+      background-color: theme.$blue-4;
+      color: theme.$bg-color;
+      line-height: 14px;
+      padding: 5px;
+    }
+    font-weight: 800;
+  }
+}

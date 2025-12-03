@@ -2,13 +2,50 @@
 
 .card {
   border: 2px solid transparent;
+
+  overflow: hidden !important;
   font-weight: 800;
-  padding: 10px;
+  line-break: auto;
 
   .title {
-    width: 100%;
+    text-transform: uppercase;
+    padding: 0 10px;
     border-bottom: 2px solid;
     border-color: theme.$blue-4;
+  }
+
+  .communities {
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .box {
+      padding: 0 5px;
+      margin: 0 5px 5px 0;
+
+      color: theme.$bg-color;
+      background-color: theme.$blue-4;
+    }
+  }
+
+  .filler {
+    height: calc(100% - 54px);
+  }
+
+  .energy {
+    width: calc(100% - 20px);
+    padding: 0 10px;
+    line-break: anywhere;
+
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+
+    border-top: 2px solid;
+    border-color: theme.$blue-4;
+    background-color: theme.$bg-color;
+
     text-transform: uppercase;
   }
 
@@ -16,16 +53,21 @@
   border-color: theme.$blue-4;
   background-color: theme.$bg-color;
 
-  transition: color 100ms ease-in-out, background-color 100ms ease-in-out,
-    border-color 100ms ease-in-out, box-shadow 100ms ease-in-out;
+  //transition: color 100ms ease-in-out, background-color 100ms ease-in-out,
+  //  border-color 100ms ease-in-out, box-shadow 100ms ease-in-out;
   cursor: pointer;
 
   &:hover {
-    color: theme.$bg-color;
-    border-color: theme.$blue-4;
-    background-color: theme.$blue-4;
-    .title {
+    div {
+      color: theme.$bg-color;
       border-color: theme.$bg-color;
+      background-color: theme.$blue-4;
+    }
+    .communities {
+      .box {
+        color: theme.$blue-4;
+        background-color: theme.$bg-color;
+      }
     }
   }
 
@@ -34,5 +76,18 @@
     border-color: theme.$def-gray;
     background-color: theme.$bg-color;
     cursor: not-allowed;
+  }
+}
+
+.blink {
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.8;
+  }
+  20% {
+    opacity: 1;
   }
 }

@@ -3,5 +3,22 @@ import Footer from "./Footer/Footer";
 import Button from "./Button/Button";
 import Renderer from "./Renderer/Renderer";
 import Card from "./Card/Card";
+import { Globe, Circle } from "./meshes";
+import Rates from "./Rates/Rates";
+import Policies from "./Policies/Policies";
+import KardeshevCounter from "./KardeshevCounter/KardeshevCounter";
+import Overlay from "./Overlay/Overlay";
 
-export { Navbar, Footer, Button, Renderer, Card };
+export {
+  Navbar,
+  Footer,
+  Button,
+  Renderer,
+  Card,
+  Globe,
+  Circle,
+  Rates,
+  Policies,
+  Overlay,
+  KardeshevCounter,
+};

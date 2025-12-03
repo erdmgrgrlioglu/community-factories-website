@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function Time(props) {
-  const [clock, setClock] = useState("");
+  const [clock, setClock] = useState(getTime());
 
   function getTime() {
     var date = new Date();
@@ -13,20 +13,11 @@ export default function Time(props) {
     return [
       date.getFullYear().toString().padStart(5, "1"),
       ":",
-      day,
-      ":",
-      Math.round((date.getHours() / 24) * 100),
-      ":",
-      Math.round((date.getMinutes() / 60) * 100),
-      ":",
-      date.getSeconds(),
+      date.valueOf().toString().substring(0, 10),
     ].join("");
   }
 
-  useEffect(() => {
-    setClock(getTime()); // set on load
-    setInterval(() => setClock(getTime()), 500); // update every half second
-  }, []);
+  useEffect(() => setInterval(() => setClock(getTime()), 100), []);
 
   return <div className={props.className}>{clock}</div>;
 }

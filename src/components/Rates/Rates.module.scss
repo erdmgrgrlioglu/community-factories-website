@@ -1,0 +1,66 @@
+@use "/src/utilities/theme";
+
+.rates {
+  width: 50%;
+  padding: 0 20px;
+  margin-bottom: 20px;
+  border: 2px solid transparent;
+
+  overflow: hidden !important;
+  font-weight: 800;
+  line-break: auto;
+
+  .title {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px 0;
+    border-color: theme.$blue-4;
+  }
+
+  .row {
+    margin: 5px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    div {
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  color: theme.$blue-4;
+  border-color: theme.$blue-4;
+  background-color: theme.$bg-color;
+
+  cursor: pointer;
+
+  &:hover {
+    color: theme.$bg-color;
+    border-color: theme.$bg-color;
+    background-color: theme.$blue-4;
+  }
+
+  &:disabled {
+    color: theme.$def-gray;
+    border-color: theme.$def-gray;
+    background-color: theme.$bg-color;
+    cursor: not-allowed;
+  }
+}
+
+.blink {
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.8;
+  }
+  20% {
+    opacity: 1;
+  }
+}

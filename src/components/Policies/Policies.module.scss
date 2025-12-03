@@ -1,0 +1,48 @@
+@use "/src/utilities/theme";
+
+.policies {
+  width: 50%;
+  padding: 0 20px;
+  margin-bottom: 20px;
+  border: 2px solid theme.$blue-4;
+
+  overflow: hidden !important;
+  font-weight: 800;
+  line-break: auto;
+
+  color: theme.$blue-4;
+  background-color: theme.$bg-color;
+
+  .title {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 20px;
+  }
+
+  .grid {
+    .box {
+      padding: 20px;
+      border: 2px solid theme.$blue-4;
+      margin: 10px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        color: theme.$bg-color;
+        border-color: theme.$bg-color;
+        background-color: theme.$blue-4;
+      }
+      cursor: pointer;
+    }
+  }
+
+  &:disabled {
+    color: theme.$def-gray;
+    border-color: theme.$def-gray;
+    background-color: theme.$bg-color;
+    cursor: not-allowed;
+  }
+}
