@@ -17,7 +17,10 @@ export default function Time(props) {
     ].join("");
   }
 
-  useEffect(() => setInterval(() => setClock(getTime()), 100), []);
+  useEffect(() => {
+    setInterval(() => setClock(getTime()), 100);
+    return () => {};
+  }, []);
 
   return <div className={props.className}>{clock}</div>;
 }

@@ -38,6 +38,7 @@ export default function Circle(props) {
   useEffect(() => {
     api.position.subscribe((pos) => (position = pos));
     api.material.set({ friction: 0, restitution: 0 });
+    return () => {};
   });
 
   useFrame((state, deltaTime) => {

@@ -9,11 +9,11 @@ export function energyConsumption() {
 }
 
 export function resourceBudget() {
-  return 1;
+  return 100;
 }
 
 export function resourceConsumption() {
-  return 1;
+  return 100;
 }
 
 export function calToJoule(calories) {
@@ -47,9 +47,11 @@ export function recommendedChildCountPerFamily() {
 }
 
 export function kardeshevNumber() {
+  // hank ai says 0.7276
   return (
-    (energyConsumption() / energyBudget()) *
-    (resourceConsumption() / resourceBudget())
+    (energyConsumption() / energyBudget() +
+      resourceConsumption() / resourceBudget()) /
+    2
   );
 }
 

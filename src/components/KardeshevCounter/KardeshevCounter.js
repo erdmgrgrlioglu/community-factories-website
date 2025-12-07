@@ -7,17 +7,16 @@ import { kardeshevNumber } from "../../Functions";
 export default function KardeshevCounter() {
   const [counter, setCounter] = useState(kardeshevNumber());
 
-  useEffect(
-    () =>
-      setInterval(
-        () =>
-          setCounter(
-            kardeshevNumber() + 0.000000000000000000001 * new Date().valueOf()
-          ),
-        100
-      ),
-    []
-  );
+  useEffect(() => {
+    setInterval(
+      () =>
+        setCounter(
+          kardeshevNumber() + 0.0000000000000000001 * new Date().valueOf()
+        ),
+      100
+    );
+    return () => {};
+  }, []);
 
   return (
     <div className={classes.globe}>

@@ -11,25 +11,9 @@
   align-items: center;
   justify-content: center;
 
-  .expand {
-    height: 100%;
+  .buttons {
+    padding-left: 20px;
     width: 100%;
-  }
-
-  .scale {
-    --global-scale-x: 1;
-    --global-scale-y: 1;
-    width: calc(100% / var(--global-scale-x));
-    height: calc(100% / var(--global-scale-y));
-    transform: //translate(50px, 100px)
-      scale(var(--global-scale-x), var(--global-scale-y));
-    transform-origin: 0 0;
-  }
-
-  .row {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
   }
 
   .stem {
