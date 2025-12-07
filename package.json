@@ -1,8 +1,7 @@
 {
   "name": "community-factories",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
-  "homepage": "https://community-factories",
   "dependencies": {
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.4.0",
@@ -25,8 +24,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "preview": "npm run build && wrangler pages dev",
+		"deploy": "npm run build && wrangler pages deploy"
   },
   "eslintConfig": {
     "extends": [
@@ -46,7 +45,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "gh-pages": "^6.3.0"
-  }
+  "devDependencies": {"wrangler": "^4.53.0"}
 }
