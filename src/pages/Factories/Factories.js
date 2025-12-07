@@ -58,7 +58,7 @@ export default function FactoriesPage() {
       {overlay == null ? null : (
         <Overlay overlay={overlay} onClick={() => setOverlay(null)} />
       )}
-      <div className={classes.page}>
+      <div className={classes.factories}>
         <KardeshevCounter />
         <div className={classes.buttons}>
           <FaPlus onClick={() => setZoom(zoom + 5)} color="#00aeef" />
