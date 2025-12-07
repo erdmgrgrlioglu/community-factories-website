@@ -1,1 +1,1 @@
-# comunity-factories
+# community-factories
