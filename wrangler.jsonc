@@ -4,9 +4,9 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "community-factories-website",
+	"name": "community-factories-website-test",
 	"compatibility_date": "2025-12-05",
-	"pages_build_output_dir": "./dist",
+	"pages_build_output_dir": "./build",
 	"observability": {
 		"enabled": true
 	}
