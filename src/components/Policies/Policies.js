@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GridStack } from "gridstack";
 
 import "gridstack/dist/gridstack.css";
@@ -8,6 +8,14 @@ import classes from "./Policies.module.scss";
 
 export default function Policies(props) {
   const gridRef = useRef(null);
+  const [policies, setPolicies] = useState([
+    { title: "87" },
+    { title: "69" },
+    { title: "42" },
+    { title: "67" },
+  ]);
+  const [debate, setDebate] = useState(0);
+
   useEffect(() => {
     GridStack.init(
       {
@@ -30,19 +38,24 @@ export default function Policies(props) {
     <div className={"grid-stack-item"} gs-h="3" gs-w="2">
       <div className={`${"grid-stack-item-content"} ${classes.policies}`}>
         <div className={classes.title}>{"policies"}</div>
+        <div className={classes.debate}>
+          {"heads up debate:"}
+          <div
+            className={classes.box}
+            onClick={() => props.onClick(policies[debate])}
+          >
+            {policies[debate].title}
+          </div>
+        </div>
         <div ref={gridRef} className="grid-stack">
-          {props.policies
-            ? props.policies.map((v, i) => (
+          {policies
+            ? policies.map((policy, i) => (
                 <div key={i} className={"grid-stack-item"}>
                   <div
                     className={`${"grid-stack-item-content"} ${classes.box}`}
-                    onClick={() =>
-                      props.onClick({
-                        title: v,
-                      })
-                    }
+                    onClick={() => props.onClick(policy)}
                   >
-                    {v}
+                    {policy.title}
                   </div>
                 </div>
               ))

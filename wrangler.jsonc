@@ -9,7 +9,14 @@
 	"pages_build_output_dir": "./build",
 	"observability": {
 		"enabled": true
-	}
+	},
+	"d1_databases": [
+    {
+      "binding": "prod_d1_test",
+      "database_name": "test",
+      "database_id": "15b5d1ae-c8d9-4357-8020-c406737fccbc"
+    }
+    ]
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement

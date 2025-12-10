@@ -11,7 +11,7 @@ export default function Globe() {
   return (
     <mesh ref={ref}>
       <dodecahedronGeometry attach="geometry" args={[2, 2]} />
-      <meshBasicMaterial attach="material" color="#008eef" wireframe />
+      <meshBasicMaterial attach="material" color="#0090e6" wireframe />
     </mesh>
   );
 }

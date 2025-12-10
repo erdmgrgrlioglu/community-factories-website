@@ -10,7 +10,7 @@ export default function Button(props) {
     <button
       onClick={props.onClick}
       disabled={props.disabled}
-      className={props.selected ? classes.selected : classes.button}
+      className={classes.button}
     >
       {props.text}
     </button>

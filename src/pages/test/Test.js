@@ -1,84 +1,92 @@
-import { useEffect, useRef } from "react";
-import "gridstack/dist/gridstack.css";
-import "gridstack/dist/gridstack.min.css";
-import { GridStack } from "gridstack";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls, Html } from "@react-three/drei";
+import * as THREE from "three";
+import { useRef } from "react";
 
-export default function TestPage() {
-  const gridRef = useRef(null);
-  const subGridRef = useRef(null);
+const EARTH_RADIUS = 1;
+const MOON_RADIUS = 0.27;
 
-  useEffect(() => {
-    // Initialize the main Gridstack
-    const grid = GridStack.init(
-      {
-        staticGrid: false, // Enable dragging and resizing
-        float: true, // Items will float above the grid container
-        resizable: { handles: "se" }, // Resizable from the bottom-right
-      },
-      gridRef.current
-    );
-
-    // Initialize the nested sub-grid
-    const subGrid = GridStack.init(
-      {
-        staticGrid: false, // Enable dragging and resizing for nested grid
-      },
-      subGridRef.current
-    );
-
-    return () => {
-      // Clean up the grid instances when the component is unmounted
-      grid.destroy();
-      subGrid.destroy();
-    };
-  }, []);
+function Moon() {
+  const moonRef = useRef();
+  useFrame(({ clock }) => {
+    const t = clock.getElapsedTime();
+    if (moonRef.current) {
+      moonRef.current.position.set(Math.sin(t) * 5, 0, Math.cos(t) * 5);
+    }
+  });
 
   return (
-    <div style={{ border: "2px solid", width: "100%", height: "100%" }}>
-      <div
-        ref={gridRef}
-        className="grid-stack"
-        style={{ border: "2px solid", height: "100%" }}
+    <mesh ref={moonRef}>
+      <sphereGeometry args={[MOON_RADIUS, 16, 16]} />
+      <Html
+        position={[MOON_RADIUS * 1.5, 0, 0]}
+        center
+        style={{
+          pointerEvents: "none",
+          background: "transparent",
+          color: "black",
+        }}
       >
-        <div className="grid-stack-item" data-gs-width="4" data-gs-height="4">
-          <div className="grid-stack-item-content">
-            <h3>Main Grid Item 1</h3>
-            {/* Nested sub-grid inside this item */}
-            <div
-              ref={subGridRef}
-              className="grid-stack sub-grid"
-              style={{ border: "2px solid" }}
-            >
-              <div
-                className="grid-stack-item"
-                data-gs-width="4"
-                data-gs-height="4"
-                style={{ border: "2px solid" }}
-              >
-                <div className="grid-stack-item-content">
-                  <h4>Sub Grid Item 1</h4>
-                </div>
-              </div>
-              <div
-                className="grid-stack-item"
-                data-gs-width="4"
-                data-gs-height="4"
-                style={{ border: "2px solid" }}
-              >
-                <div className="grid-stack-item-content">
-                  <h4>Sub Grid Item 2</h4>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {""}
+      </Html>
+      <Html
+        position={[MOON_RADIUS * 1.5, 0, 0]}
+        center
+        style={{
+          pointerEvents: "none",
+          background: "transparent",
+          color: "black",
+        }}
+      >
+        {"7.342e22 kg"}
+      </Html>
+    </mesh>
+  );
+}
 
-        <div className="grid-stack-item" data-gs-width="4" data-gs-height="2">
-          <div className="grid-stack-item-content">
-            <h3>Main Grid Item 2</h3>
-          </div>
-        </div>
-      </div>
-    </div>
+export default function TestPage(props) {
+  return (
+    <Canvas
+      camera={{ position: [10, 5, 20], fov: 45 }}
+      onCreated={({ camera }) => camera.layers.enableAll()}
+    >
+      <directionalLight position={[0, 0, 1]} intensity={3} />
+
+      <axesHelper args={[5]} />
+      <mesh>
+        <sphereGeometry args={[EARTH_RADIUS, 16, 16]} />
+        <meshPhongMaterial
+          shininess={5}
+          specular={new THREE.Color(0x333333)}
+          normalScale={new THREE.Vector2(0.85, 0.85)}
+        />
+        <Html
+          position={[EARTH_RADIUS * 1.5, 0, 0]}
+          center
+          style={{
+            pointerEvents: "none",
+            background: "transparent",
+            color: "black",
+          }}
+        >
+          {"Earth"}
+        </Html>
+        <Html
+          position={[EARTH_RADIUS * 1.5, 0, 0]}
+          center
+          style={{
+            pointerEvents: "none",
+            background: "transparent",
+            color: "black",
+          }}
+        >
+          {"5.97237e24 kg"}
+        </Html>
+      </mesh>
+
+      <Moon />
+
+      <OrbitControls minDistance={5} maxDistance={100} makeDefault />
+    </Canvas>
   );
 }

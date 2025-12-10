@@ -16,7 +16,7 @@ export default function ObjToMesh(props) {
         >
           <meshBasicMaterial
             attach="material"
-            color="#00aeef"
+            color="#0090e6"
             wireframe={true}
           />
         </mesh>
