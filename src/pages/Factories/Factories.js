@@ -21,22 +21,29 @@ export default function FactoriesPage() {
     {
       title: "toothbrush",
       communities: ["a", "b", "c", "d"],
-      objectPath: "objects/tooth-brush.obj",
+      energy: "10",
+      object: "objects/tooth-brush.obj",
     },
-    0,
-    0,
-    0,
-    0,
   ]);
   const stemGridRef = useRef(null);
   const [stemCards, setStemCards] = useState([
     {
-      title: "elements",
+      title: "energy",
       communities: ["sun"],
+      energy: "4600000000000000",
+      text: "a",
+    },
+    {
+      title: "elements",
+      communities: ["stars"],
     },
     {
       title: "compounds pokedex",
       communities: ["chemistry"],
+    },
+    {
+      title: "units",
+      communities: ["physics"],
     },
   ]);
   const { t, ready } = useTranslation();
@@ -53,6 +60,7 @@ export default function FactoriesPage() {
         columnWidth: 300,
         layout: "none",
       },
+      alwaysShowResizeHandle: false,
     };
     const grid = GridStack.init(options, gridRef.current);
     const stemGrid = GridStack.init(options, stemGridRef.current);
@@ -85,6 +93,7 @@ export default function FactoriesPage() {
                     title={factory.title ? factory.title : "Factory " + i}
                     communities={factory.communities}
                     onClick={() => setOverlay(factory)}
+                    energy={factory.energy}
                   />
                 ))
               : null}
@@ -99,6 +108,7 @@ export default function FactoriesPage() {
                     title={factory.title ? factory.title : "Factory " + i}
                     communities={factory.communities}
                     onClick={() => setOverlay(factory)}
+                    energy={factory.energy}
                   />
                 ))
               : null}

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Globe } from "../meshes";
 import Renderer from "../Renderer/Renderer";
 import classes from "./KardeshevCounter.module.scss";
-import { kardeshevNumber } from "../../Functions";
+import { kardeshevNumber } from "../../functions";
 
 export default function KardeshevCounter() {
   const [counter, setCounter] = useState(kardeshevNumber());

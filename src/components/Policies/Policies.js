@@ -28,6 +28,7 @@ export default function Policies(props) {
           columnWidth: 300,
           layout: "none",
         },
+        alwaysShowResizeHandle: false,
       },
       gridRef.current
     );
@@ -39,7 +40,7 @@ export default function Policies(props) {
       <div className={`${"grid-stack-item-content"} ${classes.policies}`}>
         <div className={classes.title}>{"policies"}</div>
         <div className={classes.debate}>
-          {"heads up debate:"}
+          <div style={{ width: "100px" }}>{"heads up debate:"}</div>
           <div
             className={classes.box}
             onClick={() => props.onClick(policies[debate])}

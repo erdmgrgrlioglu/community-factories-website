@@ -1,3 +1,5 @@
+import { format } from "../../functions";
+
 import classes from "./Card.module.scss";
 
 export default function Card(props) {
@@ -15,12 +17,13 @@ export default function Card(props) {
             : "no one is working on this"}
         </div>
         <div className={classes.filler} />
-        <div className={classes.energy}>
-          <div className={classes.blink}>
-            {props.energy ? null : "?"}
-            {" W"}
+        {props.energy ? (
+          <div className={classes.energy}>
+            <div className={classes.blink}>
+              {format(props.energy) + " Energy Second"}
+            </div>
           </div>
-        </div>
+        ) : null}
       </div>
     </div>
   );

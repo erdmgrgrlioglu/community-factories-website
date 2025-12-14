@@ -7,9 +7,11 @@ export default function Overlay(props) {
     <div className={classes.overlay}>
       <div className={classes.backdrop} onClick={() => props.onClick()} />
       <div className={classes.box}>
-        <div className={classes.title}>{props.overlay.title}</div>
-        {props.overlay.objectPath ? (
-          <Renderer objects={<ObjToMesh path={props.overlay.objectPath} />} />
+        <div className={classes.title}>{props.title}</div>
+        {props.object ? (
+          <Renderer objects={<ObjToMesh path={props.object} />} />
+        ) : props.text ? (
+          <div className={classes.text}>{props.text}</div>
         ) : (
           <div className={classes.fill} />
         )}

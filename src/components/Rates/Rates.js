@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react";
 import {
-  energyBudget,
-  energyConsumption,
+  energyIn,
+  energyInUse,
+  resourceAvailable,
+  resourceInUse,
   format,
-  carryingCapacity,
-  worldPopulation,
+  earthCarryingCapacity,
+  earthPopulation,
   recommendedChildCountPerFamily,
-  resourceBudget,
-  resourceConsumption,
-} from "../../Functions";
+  numberOfBalls,
+  earthCrustMass,
+  numberOfImportantJigglyGoos,
+} from "../../functions";
 
 import classes from "./Rates.module.scss";
 
-export default function Rates(props) {
+export default function Rates() {
   const [clock, setClock] = useState(Math.random());
   useEffect(() => {
     setInterval(() => setClock(Math.random()), 1000);
@@ -20,51 +23,58 @@ export default function Rates(props) {
   }, []);
 
   return (
-    <div className={"grid-stack-item"} gs-h="3" gs-w="2">
+    <div
+      className={"grid-stack-item"}
+      gs-h="3"
+      gs-w="2"
+      onClick={() => numberOfImportantJigglyGoos(10)}
+    >
       <div className={`${"grid-stack-item-content"} ${classes.rates}`}>
         <div className={classes.title}>{"rates"}</div>
         <div className={classes.row}>
-          <div>{"Energy Budget"}</div>
+          <div>{"Energy Available"}</div>
           <div className={classes.blink}>
-            {energyBudget().toString().substring(0, 3) + " TW"}
+            {format(energyIn()) + " Energy Second"}
           </div>
         </div>
         <div className={classes.row}>
-          <div>{"Energy Consumption"}</div>
+          <div>{"Energy In Use"}</div>
           <div className={classes.blink}>
-            {energyConsumption().toString().substring(0, 2) + " TW"}
+            {format(energyInUse()) + " Energy Second"}
           </div>
         </div>
         <div className={classes.row}>
-          <div>{"Resource Budget"}</div>
+          <div>{"Resource Available"}</div>
           <div className={classes.blink}>
-            {resourceBudget().toString() + " TW"}
+            {format(resourceAvailable()) + " Mass"}
           </div>
         </div>
         <div className={classes.row}>
-          <div>{"Resource Consumption"}</div>
+          <div>{"Resource In Use"}</div>
           <div className={classes.blink}>
-            {resourceConsumption().toString() + " TW"}
+            {format(resourceInUse()) + " Mass"}
           </div>
         </div>
         <div className={classes.row}>
-          <div>{"Carrying Capacity"}</div>
-          <div className={classes.blink}>
-            {format(Math.round(carryingCapacity() + clock))}
-          </div>
+          <div>{"Earth Carrying Capacity"}</div>
+          <div className={classes.blink}>{earthCarryingCapacity() + clock}</div>
         </div>
         <div className={classes.row}>
-          <div>{"World Population"}</div>
+          <div>{"Earth Population"}</div>
           <div className={classes.blink}>
-            {format(Math.round(worldPopulation() + clock))}
+            {Math.round(earthPopulation() + clock)}
           </div>
         </div>
         <div className={classes.row}>
           <div>{"Recommended Child Count per Family"}</div>
           <div className={classes.blink}>
-            {(recommendedChildCountPerFamily() + clock)
-              .toString()
-              .substring(0, 9)}
+            {recommendedChildCountPerFamily() + clock}
+          </div>
+        </div>
+        <div className={classes.row}>
+          <div>{"Number of Balls on Earths Crust"}</div>
+          <div className={classes.blink}>
+            {format(numberOfBalls(earthCrustMass(), 14))}
           </div>
         </div>
       </div>
