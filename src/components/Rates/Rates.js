@@ -8,10 +8,10 @@ import {
   earthCarryingCapacity,
   earthPopulation,
   recommendedChildCountPerFamily,
-  numberOfBalls,
   earthCrustMass,
   numberOfImportantJigglyGoos,
-} from "../../functions";
+  numberOfJigglyGoos,
+} from "../../Functions";
 
 import classes from "./Rates.module.scss";
 
@@ -74,7 +74,13 @@ export default function Rates() {
         <div className={classes.row}>
           <div>{"Number of Balls on Earths Crust"}</div>
           <div className={classes.blink}>
-            {format(numberOfBalls(earthCrustMass(), 14))}
+            {format(numberOfJigglyGoos(earthCrustMass(), 14))}
+          </div>
+        </div>
+        <div className={classes.row}>
+          <div>{"Mom"}</div>
+          <div className={classes.blink}>
+            {format(Math.pow(10, 67)) + " Mass"}
           </div>
         </div>
       </div>

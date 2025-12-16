@@ -1,10 +1,10 @@
-import { format } from "../../functions";
+import { format } from "../../Functions";
 
 import classes from "./Card.module.scss";
 
 export default function Card(props) {
   return (
-    <div className={"grid-stack-item card"} onClick={props.onClick}>
+    <div className={"grid-stack-item"} onClick={props.onClick}>
       <div className={`${"grid-stack-item-content"} ${classes.card}`}>
         <div className={classes.title}>{props.title}</div>
         <div className={classes.communities}>

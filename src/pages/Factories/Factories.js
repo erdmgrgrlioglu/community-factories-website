@@ -6,13 +6,13 @@ import {
   Rates,
   Policies,
   Overlay,
+  Zoom,
 } from "../../components";
 import { GridStack } from "gridstack";
 
 import classes from "./Factories.module.scss";
-import "gridstack/dist/gridstack.css";
 import "gridstack/dist/gridstack.min.css";
-import Zoom from "../../components/Zoom/Zoom";
+import "./Factories.css";
 
 export default function FactoriesPage() {
   const [overlay, setOverlay] = useState(null);
@@ -45,6 +45,10 @@ export default function FactoriesPage() {
       title: "units",
       communities: ["physics"],
     },
+    {
+      title: "atom",
+      communities: ["physics"],
+    },
   ]);
   const { t, ready } = useTranslation();
 
@@ -60,6 +64,7 @@ export default function FactoriesPage() {
         columnWidth: 300,
         layout: "none",
       },
+      resizable: { handles: "all" },
       alwaysShowResizeHandle: false,
     };
     const grid = GridStack.init(options, gridRef.current);

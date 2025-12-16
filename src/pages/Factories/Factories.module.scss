@@ -10,6 +10,19 @@
   align-items: center;
   justify-content: center;
 
+  .ui-resizable-se {
+    background-image: none !important;
+  }
+  .ui-resizable-sw {
+    background-image: none !important;
+  }
+  .ui-resizable-ne {
+    background-image: none !important;
+  }
+  .ui-resizable-nw {
+    background-image: none !important;
+  }
+
   .stem {
     width: 100%;
     margin: 20px 0;

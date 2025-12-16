@@ -8,6 +8,7 @@ import Rates from "./Rates/Rates";
 import Policies from "./Policies/Policies";
 import KardeshevCounter from "./KardeshevCounter/KardeshevCounter";
 import Overlay from "./Overlay/Overlay";
+import Zoom from "./Zoom/Zoom";
 
 export {
   Navbar,
@@ -22,4 +23,5 @@ export {
   Overlay,
   KardeshevCounter,
   ObjToMesh,
+  Zoom,
 };

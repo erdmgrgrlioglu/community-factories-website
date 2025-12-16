@@ -23,6 +23,7 @@ export default function Policies(props) {
         staticGrid: false,
         minRow: 1,
         float: false,
+        resizable: { handles: "all" },
         columnOpts: {
           columnMax: 500, //cigarettes
           columnWidth: 300,

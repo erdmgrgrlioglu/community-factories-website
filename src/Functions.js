@@ -1,5 +1,5 @@
-// mass g, time s, energy j, dist m, fuck watts and mole
-// all of physics
+// minimum knowledge needed to derive (almost) all of physics
+// mass g, time s, energy j, dist m, fuck watts and mole and dalton
 export const unitList = [
   ["Quekto", "q"],
   ["Ronto", "r"],
@@ -58,14 +58,12 @@ export function massToEnergy(mass) {
   return (mass / 1000) * Math.pow(speedOfLight(), 2);
 }
 
-export const atomicMassConstant = 1.66053907;
-
-export function periodicTable(n) {
+export function jigglyGoos(n) {
   var table = [
     {
       name: "Hydrogen",
       appearance: "colorless gas",
-      atomic_mass: 1.008,
+      mass: 1.66053906892 * Math.pow(10, -24) * 1.008,
       boil: 20.271,
       category: "diatomic nonmetal",
       density: 0.08988,
@@ -97,7 +95,7 @@ export function periodicTable(n) {
       name: "Helium",
       appearance:
         "colorless gas, exhibiting a red-orange glow when placed in a high-voltage electric field",
-      atomic_mass: 4.0026022,
+      mass: 1.66053906892 * Math.pow(10, -24) * 4.0026022,
       boil: 4.222,
       category: "noble gas",
       density: 0.1786,
@@ -128,7 +126,7 @@ export function periodicTable(n) {
     {
       name: "Lithium",
       appearance: "silvery-white",
-      atomic_mass: 6.94,
+      mass: 1.66053906892 * Math.pow(10, -24) * 6.94,
       boil: 1603,
       category: "alkali metal",
       density: 0.534,
@@ -160,7 +158,7 @@ export function periodicTable(n) {
     {
       name: "Beryllium",
       appearance: "white-gray metallic",
-      atomic_mass: 9.01218315,
+      mass: 1.66053906892 * Math.pow(10, -24) * 9.01218315,
       boil: 2742,
       category: "alkaline earth metal",
       density: 1.85,
@@ -192,7 +190,7 @@ export function periodicTable(n) {
     {
       name: "Boron",
       appearance: "black-brown",
-      atomic_mass: 10.81,
+      mass: 1.66053906892 * Math.pow(10, -24) * 10.81,
       boil: 4200,
       category: "metalloid",
       density: 2.08,
@@ -223,7 +221,7 @@ export function periodicTable(n) {
     {
       name: "Carbon",
       appearance: null,
-      atomic_mass: 12.011,
+      mass: 1.66053906892 * Math.pow(10, -24) * 12.011,
       boil: null,
       category: "polyatomic nonmetal",
       density: 1.821,
@@ -254,7 +252,7 @@ export function periodicTable(n) {
     {
       name: "Nitrogen",
       appearance: "colorless gas, liquid or solid",
-      atomic_mass: 14.007,
+      mass: 1.66053906892 * Math.pow(10, -24) * 14.007,
       boil: 77.355,
       category: "diatomic nonmetal",
       density: 1.251,
@@ -285,7 +283,7 @@ export function periodicTable(n) {
     {
       name: "Oxygen",
       appearance: null,
-      atomic_mass: 15.999,
+      mass: 1.66053906892 * Math.pow(10, -24) * 15.999,
       boil: 90.188,
       category: "diatomic nonmetal",
       density: 1.429,
@@ -318,7 +316,7 @@ export function periodicTable(n) {
     {
       name: "Fluorine",
       appearance: null,
-      atomic_mass: 18.9984031636,
+      mass: 1.66053906892 * Math.pow(10, -24) * 18.9984031636,
       boil: 85.03,
       category: "diatomic nonmetal",
       density: 1.696,
@@ -354,7 +352,7 @@ export function periodicTable(n) {
       name: "Neon",
       appearance:
         "colorless gas exhibiting an orange-red glow when placed in a high voltage electric field",
-      atomic_mass: 20.17976,
+      mass: 1.66053906892 * Math.pow(10, -24) * 20.17976,
       boil: 27.104,
       category: "noble gas",
       density: 0.9002,
@@ -388,7 +386,7 @@ export function periodicTable(n) {
     {
       name: "Sodium",
       appearance: "silvery white metallic",
-      atomic_mass: 22.989769282,
+      mass: 1.66053906892 * Math.pow(10, -24) * 22.989769282,
       boil: 1156.09,
       category: "alkali metal",
       density: 0.968,
@@ -422,7 +420,7 @@ export function periodicTable(n) {
     {
       name: "Magnesium",
       appearance: "shiny grey solid",
-      atomic_mass: 24.305,
+      mass: 1.66053906892 * Math.pow(10, -24) * 24.305,
       boil: 1363,
       category: "alkaline earth metal",
       density: 1.738,
@@ -456,7 +454,7 @@ export function periodicTable(n) {
     {
       name: "Aluminium",
       appearance: "silvery gray metallic",
-      atomic_mass: 26.98153857,
+      mass: 1.66053906892 * Math.pow(10, -24) * 26.98153857,
       boil: 2743,
       category: "post-transition metal",
       density: 2.7,
@@ -490,7 +488,7 @@ export function periodicTable(n) {
     {
       name: "Silicon",
       appearance: "crystalline, reflective with bluish-tinged faces",
-      atomic_mass: 28.085,
+      mass: 1.66053906892 * Math.pow(10, -24) * 28.085,
       boil: 3538,
       category: "metalloid",
       density: 2.329,
@@ -524,7 +522,7 @@ export function periodicTable(n) {
     {
       name: "Phosphorus",
       appearance: "colourless, waxy white, yellow, scarlet, red, violet, black",
-      atomic_mass: 30.9737619985,
+      mass: 1.66053906892 * Math.pow(10, -24) * 30.9737619985,
       boil: null,
       category: "polyatomic nonmetal",
       density: 1.823,
@@ -558,7 +556,7 @@ export function periodicTable(n) {
     {
       name: "Sulfur",
       appearance: "lemon yellow sintered microcrystals",
-      atomic_mass: 32.06,
+      mass: 1.66053906892 * Math.pow(10, -24) * 32.06,
       boil: 717.8,
       category: "polyatomic nonmetal",
       density: 2.07,
@@ -592,7 +590,7 @@ export function periodicTable(n) {
     {
       name: "Chlorine",
       appearance: "pale yellow-green gas",
-      atomic_mass: 35.45,
+      mass: 1.66053906892 * Math.pow(10, -24) * 35.45,
       boil: 239.11,
       category: "diatomic nonmetal",
       density: 3.2,
@@ -627,7 +625,7 @@ export function periodicTable(n) {
       name: "Argon",
       appearance:
         "colorless gas exhibiting a lilac/violet glow when placed in a high voltage electric field",
-      atomic_mass: 39.9481,
+      mass: 1.66053906892 * Math.pow(10, -24) * 39.9481,
       boil: 87.302,
       category: "noble gas",
       density: 1.784,
@@ -661,7 +659,7 @@ export function periodicTable(n) {
     {
       name: "Potassium",
       appearance: "silvery gray",
-      atomic_mass: 39.09831,
+      mass: 1.66053906892 * Math.pow(10, -24) * 39.09831,
       boil: 1032,
       category: "alkali metal",
       density: 0.862,
@@ -695,7 +693,7 @@ export function periodicTable(n) {
     {
       name: "Calcium",
       appearance: null,
-      atomic_mass: 40.0784,
+      mass: 1.66053906892 * Math.pow(10, -24) * 40.0784,
       boil: 1757,
       category: "alkaline earth metal",
       density: 1.55,
@@ -730,7 +728,7 @@ export function periodicTable(n) {
     {
       name: "Scandium",
       appearance: "silvery white",
-      atomic_mass: 44.9559085,
+      mass: 1.66053906892 * Math.pow(10, -24) * 44.9559085,
       boil: 3109,
       category: "transition metal",
       density: 2.985,
@@ -765,7 +763,7 @@ export function periodicTable(n) {
     {
       name: "Titanium",
       appearance: "silvery grey-white metallic",
-      atomic_mass: 47.8671,
+      mass: 1.66053906892 * Math.pow(10, -24) * 47.8671,
       boil: 3560,
       category: "transition metal",
       density: 4.506,
@@ -800,7 +798,7 @@ export function periodicTable(n) {
     {
       name: "Vanadium",
       appearance: "blue-silver-grey metal",
-      atomic_mass: 50.94151,
+      mass: 1.66053906892 * Math.pow(10, -24) * 50.94151,
       boil: 3680,
       category: "transition metal",
       density: 6,
@@ -835,7 +833,7 @@ export function periodicTable(n) {
     {
       name: "Chromium",
       appearance: "silvery metallic",
-      atomic_mass: 51.99616,
+      mass: 1.66053906892 * Math.pow(10, -24) * 51.99616,
       boil: 2944,
       category: "transition metal",
       density: 7.19,
@@ -870,7 +868,7 @@ export function periodicTable(n) {
     {
       name: "Manganese",
       appearance: "silvery metallic",
-      atomic_mass: 54.9380443,
+      mass: 1.66053906892 * Math.pow(10, -24) * 54.9380443,
       boil: 2334,
       category: "transition metal",
       density: 7.21,
@@ -905,7 +903,7 @@ export function periodicTable(n) {
     {
       name: "Iron",
       appearance: "lustrous metallic with a grayish tinge",
-      atomic_mass: 55.8452,
+      mass: 1.66053906892 * Math.pow(10, -24) * 55.8452,
       boil: 3134,
       category: "transition metal",
       density: 7.874,
@@ -940,7 +938,7 @@ export function periodicTable(n) {
     {
       name: "Cobalt",
       appearance: "hard lustrous gray metal",
-      atomic_mass: 58.9331944,
+      mass: 1.66053906892 * Math.pow(10, -24) * 58.9331944,
       boil: 3200,
       category: "transition metal",
       density: 8.9,
@@ -975,7 +973,7 @@ export function periodicTable(n) {
     {
       name: "Nickel",
       appearance: "lustrous, metallic, and silver with a gold tinge",
-      atomic_mass: 58.69344,
+      mass: 1.66053906892 * Math.pow(10, -24) * 58.69344,
       boil: 3003,
       category: "transition metal",
       density: 8.908,
@@ -1010,7 +1008,7 @@ export function periodicTable(n) {
     {
       name: "Copper",
       appearance: "red-orange metallic luster",
-      atomic_mass: 63.5463,
+      mass: 1.66053906892 * Math.pow(10, -24) * 63.5463,
       boil: 2835,
       category: "transition metal",
       density: 8.96,
@@ -1046,7 +1044,7 @@ export function periodicTable(n) {
     {
       name: "Zinc",
       appearance: "silver-gray",
-      atomic_mass: 65.382,
+      mass: 1.66053906892 * Math.pow(10, -24) * 65.382,
       boil: 1180,
       category: "transition metal",
       density: 7.14,
@@ -1081,7 +1079,7 @@ export function periodicTable(n) {
     {
       name: "Gallium",
       appearance: "silver-white",
-      atomic_mass: 69.7231,
+      mass: 1.66053906892 * Math.pow(10, -24) * 69.7231,
       boil: 2673,
       category: "post-transition metal",
       density: 5.91,
@@ -1112,7 +1110,7 @@ export function periodicTable(n) {
     {
       name: "Germanium",
       appearance: "grayish-white",
-      atomic_mass: 72.6308,
+      mass: 1.66053906892 * Math.pow(10, -24) * 72.6308,
       boil: 3106,
       category: "metalloid",
       density: 5.323,
@@ -1143,7 +1141,7 @@ export function periodicTable(n) {
     {
       name: "Arsenic",
       appearance: "metallic grey",
-      atomic_mass: 74.9215956,
+      mass: 1.66053906892 * Math.pow(10, -24) * 74.9215956,
       boil: null,
       category: "metalloid",
       density: 5.727,
@@ -1174,7 +1172,7 @@ export function periodicTable(n) {
     {
       name: "Selenium",
       appearance: "black, red, and gray (not pictured) allotropes",
-      atomic_mass: 78.9718,
+      mass: 1.66053906892 * Math.pow(10, -24) * 78.9718,
       boil: 958,
       category: "polyatomic nonmetal",
       density: 4.81,
@@ -1205,7 +1203,7 @@ export function periodicTable(n) {
     {
       name: "Bromine",
       appearance: null,
-      atomic_mass: 79.904,
+      mass: 1.66053906892 * Math.pow(10, -24) * 79.904,
       boil: 332,
       category: "diatomic nonmetal",
       density: 3.1028,
@@ -1237,7 +1235,7 @@ export function periodicTable(n) {
       name: "Krypton",
       appearance:
         "colorless gas, exhibiting a whitish glow in a high electric field",
-      atomic_mass: 83.7982,
+      mass: 1.66053906892 * Math.pow(10, -24) * 83.7982,
       boil: 119.93,
       category: "noble gas",
       density: 3.749,
@@ -1273,7 +1271,7 @@ export function periodicTable(n) {
     {
       name: "Rubidium",
       appearance: "grey white",
-      atomic_mass: 85.46783,
+      mass: 1.66053906892 * Math.pow(10, -24) * 85.46783,
       boil: 961,
       category: "alkali metal",
       density: 1.532,
@@ -1306,7 +1304,7 @@ export function periodicTable(n) {
     {
       name: "Strontium",
       appearance: null,
-      atomic_mass: 87.621,
+      mass: 1.66053906892 * Math.pow(10, -24) * 87.621,
       boil: 1650,
       category: "alkaline earth metal",
       density: 2.64,
@@ -1340,7 +1338,7 @@ export function periodicTable(n) {
     {
       name: "Yttrium",
       appearance: "silvery white",
-      atomic_mass: 88.905842,
+      mass: 1.66053906892 * Math.pow(10, -24) * 88.905842,
       boil: 3203,
       category: "transition metal",
       density: 4.472,
@@ -1374,7 +1372,7 @@ export function periodicTable(n) {
     {
       name: "Zirconium",
       appearance: "silvery white",
-      atomic_mass: 91.2242,
+      mass: 1.66053906892 * Math.pow(10, -24) * 91.2242,
       boil: 4650,
       category: "transition metal",
       density: 6.52,
@@ -1405,7 +1403,7 @@ export function periodicTable(n) {
     {
       name: "Niobium",
       appearance: "gray metallic, bluish when oxidized",
-      atomic_mass: 92.906372,
+      mass: 1.66053906892 * Math.pow(10, -24) * 92.906372,
       boil: 5017,
       category: "transition metal",
       density: 8.57,
@@ -1436,7 +1434,7 @@ export function periodicTable(n) {
     {
       name: "Molybdenum",
       appearance: "gray metallic",
-      atomic_mass: 95.951,
+      mass: 1.66053906892 * Math.pow(10, -24) * 95.951,
       boil: 4912,
       category: "transition metal",
       density: 10.28,
@@ -1472,7 +1470,7 @@ export function periodicTable(n) {
     {
       name: "Technetium",
       appearance: "shiny gray metal",
-      atomic_mass: 98,
+      mass: 1.66053906892 * Math.pow(10, -24) * 98,
       boil: 4538,
       category: "transition metal",
       density: 11,
@@ -1503,7 +1501,7 @@ export function periodicTable(n) {
     {
       name: "Ruthenium",
       appearance: "silvery white metallic",
-      atomic_mass: 101.072,
+      mass: 1.66053906892 * Math.pow(10, -24) * 101.072,
       boil: 4423,
       category: "transition metal",
       density: 12.45,
@@ -1534,7 +1532,7 @@ export function periodicTable(n) {
     {
       name: "Rhodium",
       appearance: "silvery white metallic",
-      atomic_mass: 102.905502,
+      mass: 1.66053906892 * Math.pow(10, -24) * 102.905502,
       boil: 3968,
       category: "transition metal",
       density: 12.41,
@@ -1565,7 +1563,7 @@ export function periodicTable(n) {
     {
       name: "Palladium",
       appearance: "silvery white",
-      atomic_mass: 106.421,
+      mass: 1.66053906892 * Math.pow(10, -24) * 106.421,
       boil: 3236,
       category: "transition metal",
       density: 12.023,
@@ -1596,7 +1594,7 @@ export function periodicTable(n) {
     {
       name: "Silver",
       appearance: "lustrous white metal",
-      atomic_mass: 107.86822,
+      mass: 1.66053906892 * Math.pow(10, -24) * 107.86822,
       boil: 2435,
       category: "transition metal",
       density: 10.49,
@@ -1627,7 +1625,7 @@ export function periodicTable(n) {
     {
       name: "Cadmium",
       appearance: "silvery bluish-gray metallic",
-      atomic_mass: 112.4144,
+      mass: 1.66053906892 * Math.pow(10, -24) * 112.4144,
       boil: 1040,
       category: "transition metal",
       density: 8.65,
@@ -1658,7 +1656,7 @@ export function periodicTable(n) {
     {
       name: "Indium",
       appearance: "silvery lustrous gray",
-      atomic_mass: 114.8181,
+      mass: 1.66053906892 * Math.pow(10, -24) * 114.8181,
       boil: 2345,
       category: "post-transition metal",
       density: 7.31,
@@ -1689,7 +1687,7 @@ export function periodicTable(n) {
     {
       name: "Tin",
       appearance: "silvery-white (beta, β) or gray (alpha, α)",
-      atomic_mass: 118.7107,
+      mass: 1.66053906892 * Math.pow(10, -24) * 118.7107,
       boil: 2875,
       category: "post-transition metal",
       density: 7.365,
@@ -1720,7 +1718,7 @@ export function periodicTable(n) {
     {
       name: "Antimony",
       appearance: "silvery lustrous gray",
-      atomic_mass: 121.7601,
+      mass: 1.66053906892 * Math.pow(10, -24) * 121.7601,
       boil: 1908,
       category: "metalloid",
       density: 6.697,
@@ -1751,7 +1749,7 @@ export function periodicTable(n) {
     {
       name: "Tellurium",
       appearance: null,
-      atomic_mass: 127.603,
+      mass: 1.66053906892 * Math.pow(10, -24) * 127.603,
       boil: 1261,
       category: "metalloid",
       density: 6.24,
@@ -1782,7 +1780,7 @@ export function periodicTable(n) {
     {
       name: "Iodine",
       appearance: "lustrous metallic gray, violet as a gas",
-      atomic_mass: 126.904473,
+      mass: 1.66053906892 * Math.pow(10, -24) * 126.904473,
       boil: 457.4,
       category: "diatomic nonmetal",
       density: 4.933,
@@ -1814,7 +1812,7 @@ export function periodicTable(n) {
       name: "Xenon",
       appearance:
         "colorless gas, exhibiting a blue glow when placed in a high voltage electric field",
-      atomic_mass: 131.2936,
+      mass: 1.66053906892 * Math.pow(10, -24) * 131.2936,
       boil: 165.051,
       category: "noble gas",
       density: 5.894,
@@ -1845,7 +1843,7 @@ export function periodicTable(n) {
     {
       name: "Cesium",
       appearance: "silvery gold",
-      atomic_mass: 132.905451966,
+      mass: 1.66053906892 * Math.pow(10, -24) * 132.905451966,
       boil: 944,
       category: "alkali metal",
       density: 1.93,
@@ -1877,7 +1875,7 @@ export function periodicTable(n) {
     {
       name: "Barium",
       appearance: null,
-      atomic_mass: 137.3277,
+      mass: 1.66053906892 * Math.pow(10, -24) * 137.3277,
       boil: 2118,
       category: "alkaline earth metal",
       density: 3.51,
@@ -1909,7 +1907,7 @@ export function periodicTable(n) {
     {
       name: "Lanthanum",
       appearance: "silvery white",
-      atomic_mass: 138.905477,
+      mass: 1.66053906892 * Math.pow(10, -24) * 138.905477,
       boil: 3737,
       category: "lanthanide",
       density: 6.162,
@@ -1941,7 +1939,7 @@ export function periodicTable(n) {
     {
       name: "Cerium",
       appearance: "silvery white",
-      atomic_mass: 140.1161,
+      mass: 1.66053906892 * Math.pow(10, -24) * 140.1161,
       boil: 3716,
       category: "lanthanide",
       density: 6.77,
@@ -1973,7 +1971,7 @@ export function periodicTable(n) {
     {
       name: "Praseodymium",
       appearance: "grayish white",
-      atomic_mass: 140.907662,
+      mass: 1.66053906892 * Math.pow(10, -24) * 140.907662,
       boil: 3403,
       category: "lanthanide",
       density: 6.77,
@@ -2005,7 +2003,7 @@ export function periodicTable(n) {
     {
       name: "Neodymium",
       appearance: "silvery white",
-      atomic_mass: 144.2423,
+      mass: 1.66053906892 * Math.pow(10, -24) * 144.2423,
       boil: 3347,
       category: "lanthanide",
       density: 7.01,
@@ -2037,7 +2035,7 @@ export function periodicTable(n) {
     {
       name: "Promethium",
       appearance: "metallic",
-      atomic_mass: 145,
+      mass: 1.66053906892 * Math.pow(10, -24) * 145,
       boil: 3273,
       category: "lanthanide",
       density: 7.26,
@@ -2069,7 +2067,7 @@ export function periodicTable(n) {
     {
       name: "Samarium",
       appearance: "silvery white",
-      atomic_mass: 150.362,
+      mass: 1.66053906892 * Math.pow(10, -24) * 150.362,
       boil: 2173,
       category: "lanthanide",
       density: 7.52,
@@ -2101,7 +2099,7 @@ export function periodicTable(n) {
     {
       name: "Europium",
       appearance: null,
-      atomic_mass: 151.9641,
+      mass: 1.66053906892 * Math.pow(10, -24) * 151.9641,
       boil: 1802,
       category: "lanthanide",
       density: 5.264,
@@ -2133,7 +2131,7 @@ export function periodicTable(n) {
     {
       name: "Gadolinium",
       appearance: "silvery white",
-      atomic_mass: 157.253,
+      mass: 1.66053906892 * Math.pow(10, -24) * 157.253,
       boil: 3273,
       category: "lanthanide",
       density: 7.9,
@@ -2165,7 +2163,7 @@ export function periodicTable(n) {
     {
       name: "Terbium",
       appearance: "silvery white",
-      atomic_mass: 158.925352,
+      mass: 1.66053906892 * Math.pow(10, -24) * 158.925352,
       boil: 3396,
       category: "lanthanide",
       density: 8.23,
@@ -2197,7 +2195,7 @@ export function periodicTable(n) {
     {
       name: "Dysprosium",
       appearance: "silvery white",
-      atomic_mass: 162.5001,
+      mass: 1.66053906892 * Math.pow(10, -24) * 162.5001,
       boil: 2840,
       category: "lanthanide",
       density: 8.54,
@@ -2229,7 +2227,7 @@ export function periodicTable(n) {
     {
       name: "Holmium",
       appearance: "silvery white",
-      atomic_mass: 164.930332,
+      mass: 1.66053906892 * Math.pow(10, -24) * 164.930332,
       boil: 2873,
       category: "lanthanide",
       density: 8.79,
@@ -2261,7 +2259,7 @@ export function periodicTable(n) {
     {
       name: "Erbium",
       appearance: "silvery white",
-      atomic_mass: 167.2593,
+      mass: 1.66053906892 * Math.pow(10, -24) * 167.2593,
       boil: 3141,
       category: "lanthanide",
       density: 9.066,
@@ -2293,7 +2291,7 @@ export function periodicTable(n) {
     {
       name: "Thulium",
       appearance: "silvery gray",
-      atomic_mass: 168.934222,
+      mass: 1.66053906892 * Math.pow(10, -24) * 168.934222,
       boil: 2223,
       category: "lanthanide",
       density: 9.32,
@@ -2325,7 +2323,7 @@ export function periodicTable(n) {
     {
       name: "Ytterbium",
       appearance: null,
-      atomic_mass: 173.0451,
+      mass: 1.66053906892 * Math.pow(10, -24) * 173.0451,
       boil: 1469,
       category: "lanthanide",
       density: 6.9,
@@ -2357,7 +2355,7 @@ export function periodicTable(n) {
     {
       name: "Lutetium",
       appearance: "silvery white",
-      atomic_mass: 174.96681,
+      mass: 1.66053906892 * Math.pow(10, -24) * 174.96681,
       boil: 3675,
       category: "lanthanide",
       density: 9.841,
@@ -2389,7 +2387,7 @@ export function periodicTable(n) {
     {
       name: "Hafnium",
       appearance: "steel gray",
-      atomic_mass: 178.492,
+      mass: 1.66053906892 * Math.pow(10, -24) * 178.492,
       boil: 4876,
       category: "transition metal",
       density: 13.31,
@@ -2421,7 +2419,7 @@ export function periodicTable(n) {
     {
       name: "Tantalum",
       appearance: "gray blue",
-      atomic_mass: 180.947882,
+      mass: 1.66053906892 * Math.pow(10, -24) * 180.947882,
       boil: 5731,
       category: "transition metal",
       density: 16.69,
@@ -2453,7 +2451,7 @@ export function periodicTable(n) {
     {
       name: "Tungsten",
       appearance: "grayish white, lustrous",
-      atomic_mass: 183.841,
+      mass: 1.66053906892 * Math.pow(10, -24) * 183.841,
       boil: 6203,
       category: "transition metal",
       density: 19.25,
@@ -2485,7 +2483,7 @@ export function periodicTable(n) {
     {
       name: "Rhenium",
       appearance: "silvery-grayish",
-      atomic_mass: 186.2071,
+      mass: 1.66053906892 * Math.pow(10, -24) * 186.2071,
       boil: 5869,
       category: "transition metal",
       density: 21.02,
@@ -2517,7 +2515,7 @@ export function periodicTable(n) {
     {
       name: "Osmium",
       appearance: "silvery, blue cast",
-      atomic_mass: 190.233,
+      mass: 1.66053906892 * Math.pow(10, -24) * 190.233,
       boil: 5285,
       category: "transition metal",
       density: 22.59,
@@ -2549,7 +2547,7 @@ export function periodicTable(n) {
     {
       name: "Iridium",
       appearance: "silvery white",
-      atomic_mass: 192.2173,
+      mass: 1.66053906892 * Math.pow(10, -24) * 192.2173,
       boil: 4403,
       category: "transition metal",
       density: 22.56,
@@ -2581,7 +2579,7 @@ export function periodicTable(n) {
     {
       name: "Platinum",
       appearance: "silvery white",
-      atomic_mass: 195.0849,
+      mass: 1.66053906892 * Math.pow(10, -24) * 195.0849,
       boil: 4098,
       category: "transition metal",
       density: 21.45,
@@ -2613,7 +2611,7 @@ export function periodicTable(n) {
     {
       name: "Gold",
       appearance: "metallic yellow",
-      atomic_mass: 196.9665695,
+      mass: 1.66053906892 * Math.pow(10, -24) * 196.9665695,
       boil: 3243,
       category: "transition metal",
       density: 19.3,
@@ -2645,7 +2643,7 @@ export function periodicTable(n) {
     {
       name: "Mercury",
       appearance: "silvery",
-      atomic_mass: 200.5923,
+      mass: 1.66053906892 * Math.pow(10, -24) * 200.5923,
       boil: 629.88,
       category: "transition metal",
       density: 13.534,
@@ -2677,7 +2675,7 @@ export function periodicTable(n) {
     {
       name: "Thallium",
       appearance: "silvery white",
-      atomic_mass: 204.38,
+      mass: 1.66053906892 * Math.pow(10, -24) * 204.38,
       boil: 1746,
       category: "post-transition metal",
       density: 11.85,
@@ -2709,7 +2707,7 @@ export function periodicTable(n) {
     {
       name: "Lead",
       appearance: "metallic gray",
-      atomic_mass: 207.21,
+      mass: 1.66053906892 * Math.pow(10, -24) * 207.21,
       boil: 2022,
       category: "post-transition metal",
       density: 11.34,
@@ -2741,7 +2739,7 @@ export function periodicTable(n) {
     {
       name: "Bismuth",
       appearance: "lustrous silver",
-      atomic_mass: 208.980401,
+      mass: 1.66053906892 * Math.pow(10, -24) * 208.980401,
       boil: 1837,
       category: "post-transition metal",
       density: 9.78,
@@ -2773,7 +2771,7 @@ export function periodicTable(n) {
     {
       name: "Polonium",
       appearance: "silvery",
-      atomic_mass: 209,
+      mass: 1.66053906892 * Math.pow(10, -24) * 209,
       boil: 1235,
       category: "post-transition metal",
       density: 9.196,
@@ -2805,7 +2803,7 @@ export function periodicTable(n) {
     {
       name: "Astatine",
       appearance: "unknown, probably metallic",
-      atomic_mass: 210,
+      mass: 1.66053906892 * Math.pow(10, -24) * 210,
       boil: 610,
       category: "metalloid",
       density: 6.35,
@@ -2838,7 +2836,7 @@ export function periodicTable(n) {
       name: "Radon",
       appearance:
         "colorless gas, occasionally glows green or red in discharge tubes",
-      atomic_mass: 222,
+      mass: 1.66053906892 * Math.pow(10, -24) * 222,
       boil: 211.5,
       category: "noble gas",
       density: 9.73,
@@ -2870,7 +2868,7 @@ export function periodicTable(n) {
     {
       name: "Francium",
       appearance: null,
-      atomic_mass: 223,
+      mass: 1.66053906892 * Math.pow(10, -24) * 223,
       boil: 950,
       category: "alkali metal",
       density: 1.87,
@@ -2902,7 +2900,7 @@ export function periodicTable(n) {
     {
       name: "Radium",
       appearance: "silvery white metallic",
-      atomic_mass: 226,
+      mass: 1.66053906892 * Math.pow(10, -24) * 226,
       boil: 2010,
       category: "alkaline earth metal",
       density: 5.5,
@@ -2934,7 +2932,7 @@ export function periodicTable(n) {
     {
       name: "Actinium",
       appearance: null,
-      atomic_mass: 227,
+      mass: 1.66053906892 * Math.pow(10, -24) * 227,
       boil: 3500,
       category: "actinide",
       density: 10,
@@ -2966,7 +2964,7 @@ export function periodicTable(n) {
     {
       name: "Thorium",
       appearance: "silvery, often with black tarnish",
-      atomic_mass: 232.03774,
+      mass: 1.66053906892 * Math.pow(10, -24) * 232.03774,
       boil: 5061,
       category: "actinide",
       density: 11.724,
@@ -2998,7 +2996,7 @@ export function periodicTable(n) {
     {
       name: "Protactinium",
       appearance: "bright, silvery metallic luster",
-      atomic_mass: 231.035882,
+      mass: 1.66053906892 * Math.pow(10, -24) * 231.035882,
       boil: 4300,
       category: "actinide",
       density: 15.37,
@@ -3030,7 +3028,7 @@ export function periodicTable(n) {
     {
       name: "Uranium",
       appearance: null,
-      atomic_mass: 238.028913,
+      mass: 1.66053906892 * Math.pow(10, -24) * 238.028913,
       boil: 4404,
       category: "actinide",
       density: 19.1,
@@ -3062,7 +3060,7 @@ export function periodicTable(n) {
     {
       name: "Neptunium",
       appearance: "silvery metallic",
-      atomic_mass: 237,
+      mass: 1.66053906892 * Math.pow(10, -24) * 237,
       boil: 4447,
       category: "actinide",
       density: 20.45,
@@ -3094,7 +3092,7 @@ export function periodicTable(n) {
     {
       name: "Plutonium",
       appearance: "silvery white, tarnishing to dark gray in air",
-      atomic_mass: 244,
+      mass: 1.66053906892 * Math.pow(10, -24) * 244,
       boil: 3505,
       category: "actinide",
       density: 19.816,
@@ -3126,7 +3124,7 @@ export function periodicTable(n) {
     {
       name: "Americium",
       appearance: "silvery white",
-      atomic_mass: 243,
+      mass: 1.66053906892 * Math.pow(10, -24) * 243,
       boil: 2880,
       category: "actinide",
       density: 12,
@@ -3158,7 +3156,7 @@ export function periodicTable(n) {
     {
       name: "Curium",
       appearance: "silvery metallic, glows purple in the dark",
-      atomic_mass: 247,
+      mass: 1.66053906892 * Math.pow(10, -24) * 247,
       boil: 3383,
       category: "actinide",
       density: 13.51,
@@ -3190,7 +3188,7 @@ export function periodicTable(n) {
     {
       name: "Berkelium",
       appearance: "silvery",
-      atomic_mass: 247,
+      mass: 1.66053906892 * Math.pow(10, -24) * 247,
       boil: 2900,
       category: "actinide",
       density: 14.78,
@@ -3222,7 +3220,7 @@ export function periodicTable(n) {
     {
       name: "Californium",
       appearance: "silvery",
-      atomic_mass: 251,
+      mass: 1.66053906892 * Math.pow(10, -24) * 251,
       boil: 1743,
       category: "actinide",
       density: 15.1,
@@ -3254,7 +3252,7 @@ export function periodicTable(n) {
     {
       name: "Einsteinium",
       appearance: "silver-colored",
-      atomic_mass: 252,
+      mass: 1.66053906892 * Math.pow(10, -24) * 252,
       boil: 1269,
       category: "actinide",
       density: 8.84,
@@ -3286,7 +3284,7 @@ export function periodicTable(n) {
     {
       name: "Fermium",
       appearance: null,
-      atomic_mass: 257,
+      mass: 1.66053906892 * Math.pow(10, -24) * 257,
       boil: null,
       category: "actinide",
       density: null,
@@ -3318,7 +3316,7 @@ export function periodicTable(n) {
     {
       name: "Mendelevium",
       appearance: null,
-      atomic_mass: 258,
+      mass: 1.66053906892 * Math.pow(10, -24) * 258,
       boil: null,
       category: "actinide",
       density: null,
@@ -3350,7 +3348,7 @@ export function periodicTable(n) {
     {
       name: "Nobelium",
       appearance: null,
-      atomic_mass: 259,
+      mass: 1.66053906892 * Math.pow(10, -24) * 259,
       boil: null,
       category: "actinide",
       density: null,
@@ -3382,7 +3380,7 @@ export function periodicTable(n) {
     {
       name: "Lawrencium",
       appearance: null,
-      atomic_mass: 266,
+      mass: 1.66053906892 * Math.pow(10, -24) * 266,
       boil: null,
       category: "actinide",
       density: null,
@@ -3414,7 +3412,7 @@ export function periodicTable(n) {
     {
       name: "Rutherfordium",
       appearance: null,
-      atomic_mass: 267,
+      mass: 1.66053906892 * Math.pow(10, -24) * 267,
       boil: 5800,
       category: "transition metal",
       density: 23.2,
@@ -3446,7 +3444,7 @@ export function periodicTable(n) {
     {
       name: "Dubnium",
       appearance: null,
-      atomic_mass: 268,
+      mass: 1.66053906892 * Math.pow(10, -24) * 268,
       boil: null,
       category: "transition metal",
       density: 29.3,
@@ -3478,7 +3476,7 @@ export function periodicTable(n) {
     {
       name: "Seaborgium",
       appearance: null,
-      atomic_mass: 269,
+      mass: 1.66053906892 * Math.pow(10, -24) * 269,
       boil: null,
       category: "transition metal",
       density: 35,
@@ -3510,7 +3508,7 @@ export function periodicTable(n) {
     {
       name: "Bohrium",
       appearance: null,
-      atomic_mass: 270,
+      mass: 1.66053906892 * Math.pow(10, -24) * 270,
       boil: null,
       category: "transition metal",
       density: 37.1,
@@ -3542,7 +3540,7 @@ export function periodicTable(n) {
     {
       name: "Hassium",
       appearance: null,
-      atomic_mass: 269,
+      mass: 1.66053906892 * Math.pow(10, -24) * 269,
       boil: null,
       category: "transition metal",
       density: 40.7,
@@ -3574,7 +3572,7 @@ export function periodicTable(n) {
     {
       name: "Meitnerium",
       appearance: null,
-      atomic_mass: 278,
+      mass: 1.66053906892 * Math.pow(10, -24) * 278,
       boil: null,
       category: "unknown, probably transition metal",
       density: 37.4,
@@ -3606,7 +3604,7 @@ export function periodicTable(n) {
     {
       name: "Darmstadtium",
       appearance: null,
-      atomic_mass: 281,
+      mass: 1.66053906892 * Math.pow(10, -24) * 281,
       boil: null,
       category: "unknown, probably transition metal",
       density: 34.8,
@@ -3638,7 +3636,7 @@ export function periodicTable(n) {
     {
       name: "Roentgenium",
       appearance: null,
-      atomic_mass: 282,
+      mass: 1.66053906892 * Math.pow(10, -24) * 282,
       boil: null,
       category: "unknown, probably transition metal",
       density: 28.7,
@@ -3670,7 +3668,7 @@ export function periodicTable(n) {
     {
       name: "Copernicium",
       appearance: null,
-      atomic_mass: 285,
+      mass: 1.66053906892 * Math.pow(10, -24) * 285,
       boil: 3570,
       category: "transition metal",
       density: 14,
@@ -3702,7 +3700,7 @@ export function periodicTable(n) {
     {
       name: "Nihonium",
       appearance: null,
-      atomic_mass: 286,
+      mass: 1.66053906892 * Math.pow(10, -24) * 286,
       boil: 1430,
       category: "unknown, probably transition metal",
       density: 16,
@@ -3734,7 +3732,7 @@ export function periodicTable(n) {
     {
       name: "Flerovium",
       appearance: null,
-      atomic_mass: 289,
+      mass: 1.66053906892 * Math.pow(10, -24) * 289,
       boil: 420,
       category: "post-transition metal",
       density: 14,
@@ -3766,7 +3764,7 @@ export function periodicTable(n) {
     {
       name: "Moscovium",
       appearance: null,
-      atomic_mass: 289,
+      mass: 1.66053906892 * Math.pow(10, -24) * 289,
       boil: 1400,
       category: "unknown, probably post-transition metal",
       density: 13.5,
@@ -3798,7 +3796,7 @@ export function periodicTable(n) {
     {
       name: "Livermorium",
       appearance: null,
-      atomic_mass: 293,
+      mass: 1.66053906892 * Math.pow(10, -24) * 293,
       boil: 1085,
       category: "unknown, probably post-transition metal",
       density: 12.9,
@@ -3830,7 +3828,7 @@ export function periodicTable(n) {
     {
       name: "Tennessine",
       appearance: null,
-      atomic_mass: 294,
+      mass: 1.66053906892 * Math.pow(10, -24) * 294,
       boil: 883,
       category: "unknown, probably metalloid",
       density: 7.17,
@@ -3862,7 +3860,7 @@ export function periodicTable(n) {
     {
       name: "Oganesson",
       appearance: null,
-      atomic_mass: 294,
+      mass: 1.66053906892 * Math.pow(10, -24) * 294,
       boil: 350,
       category: "unknown, predicted to be noble gas",
       density: 4.95,
@@ -3894,7 +3892,7 @@ export function periodicTable(n) {
     {
       name: "Ununennium",
       appearance: null,
-      atomic_mass: 315,
+      mass: 1.66053906892 * Math.pow(10, -24) * 315,
       boil: 630,
       category: "unknown, but predicted to be an alkali metal",
       density: 3,
@@ -3929,7 +3927,7 @@ export function periodicTable(n) {
 }
 
 export function numberOfImportantJigglyGoos(mass) {
-  var atomic_nos = [
+  var atoms = [
     [12, 100000],
     [13, 500000],
     [21, 20],
@@ -3968,27 +3966,18 @@ export function numberOfImportantJigglyGoos(mass) {
     [79, 0.001],
     [82, 20],
   ];
-  for (let index = 0; index < atomic_nos.length; index++) {
+
+  for (let index = 0; index < atoms.length; index++) {
     console.log(
-      periodicTable(atomic_nos[index][0]).name,
+      jigglyGoos(atoms[index][0]).name,
       " ",
-      format(
-        (mass * atomic_nos[index][1]) /
-          (periodicTable(atomic_nos[index][0]).atomic_mass *
-            atomicMassConstant *
-            Math.pow(10, 30))
-      )
+      format((mass / jigglyGoos(atoms[index][0]).mass) * atoms[index][1])
     );
   }
 }
 
-export function numberOfBalls(mass, atomicNo) {
-  return (
-    mass /
-    (periodicTable(atomicNo).atomic_mass *
-      atomicMassConstant *
-      Math.pow(10, 24))
-  );
+export function numberOfJigglyGoos(mass, atomNo) {
+  return mass / jigglyGoos(atomNo).mass;
 }
 
 /** j*s */
