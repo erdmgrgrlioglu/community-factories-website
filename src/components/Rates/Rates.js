@@ -27,20 +27,18 @@ export default function Rates() {
       className={"grid-stack-item"}
       gs-h="3"
       gs-w="2"
-      onClick={() => numberOfImportantJigglyGoos(10)}
+      onClick={() => numberOfImportantJigglyGoos(earthCrustMass())}
     >
       <div className={`${"grid-stack-item-content"} ${classes.rates}`}>
         <div className={classes.title}>{"rates"}</div>
         <div className={classes.row}>
           <div>{"Energy Available"}</div>
-          <div className={classes.blink}>
-            {format(energyIn()) + " Energy Second"}
-          </div>
+          <div className={classes.blink}>{format(energyIn()) + " Energy"}</div>
         </div>
         <div className={classes.row}>
           <div>{"Energy In Use"}</div>
           <div className={classes.blink}>
-            {format(energyInUse()) + " Energy Second"}
+            {format(energyInUse()) + " Energy"}
           </div>
         </div>
         <div className={classes.row}>

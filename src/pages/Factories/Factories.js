@@ -10,6 +10,8 @@ import {
 } from "../../components";
 import { GridStack } from "gridstack";
 
+import { jigglyGoos, units } from "../../Functions";
+
 import classes from "./Factories.module.scss";
 import "gridstack/dist/gridstack.min.css";
 import "./Factories.css";
@@ -23,19 +25,31 @@ export default function FactoriesPage() {
       communities: ["a", "b", "c", "d"],
       energy: "10",
       object: "objects/tooth-brush.obj",
+      scale: 0.4,
     },
   ]);
   const stemGridRef = useRef(null);
   const [stemCards, setStemCards] = useState([
     {
       title: "energy",
-      communities: ["sun"],
+      communities: ["sun", "SPARC"],
       energy: "4600000000000000",
-      text: "a",
     },
     {
       title: "elements",
       communities: ["stars"],
+      element: (
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "auto auto auto auto auto",
+          }}
+        >
+          {jigglyGoos().map((v, i) => (
+            <div key={i}>{v.name}</div>
+          ))}
+        </div>
+      ),
     },
     {
       title: "compounds pokedex",
@@ -44,28 +58,29 @@ export default function FactoriesPage() {
     {
       title: "units",
       communities: ["physics"],
+      element: units.map((v, i) => <div key={i}>{v[0] + " " + v[1]}</div>),
     },
     {
       title: "atom",
       communities: ["physics"],
+      object: "objects/atom.obj",
+      scale: 4,
     },
   ]);
   const { t, ready } = useTranslation();
 
   useEffect(() => {
     let options = {
-      staticGrid: false,
       cellHeight: "163px",
       minRow: 1,
-      acceptWidgets: ".card",
       float: true,
+      resizable: { handles: "all" },
       columnOpts: {
         columnMax: 500, //cigarettes
         columnWidth: 300,
         layout: "none",
+        acceptWidgets: ".card",
       },
-      resizable: { handles: "all" },
-      alwaysShowResizeHandle: false,
     };
     const grid = GridStack.init(options, gridRef.current);
     const stemGrid = GridStack.init(options, stemGridRef.current);
@@ -83,9 +98,9 @@ export default function FactoriesPage() {
     <div>Loading...</div>
   ) : (
     <>
-      {overlay == null ? null : (
-        <Overlay overlay={overlay} onClick={() => setOverlay(null)} />
-      )}
+      {overlay ? (
+        <Overlay value={overlay} onClick={() => setOverlay(null)} />
+      ) : null}
       <div className={classes.factories}>
         <KardeshevCounter />
         <Zoom>
@@ -94,11 +109,9 @@ export default function FactoriesPage() {
             {cards
               ? cards.map((factory, i) => (
                   <Card
+                    value={factory}
                     key={i}
-                    title={factory.title ? factory.title : "Factory " + i}
-                    communities={factory.communities}
                     onClick={() => setOverlay(factory)}
-                    energy={factory.energy}
                   />
                 ))
               : null}
@@ -109,11 +122,9 @@ export default function FactoriesPage() {
             {stemCards
               ? stemCards.map((factory, i) => (
                   <Card
+                    value={factory}
                     key={i}
-                    title={factory.title ? factory.title : "Factory " + i}
-                    communities={factory.communities}
                     onClick={() => setOverlay(factory)}
-                    energy={factory.energy}
                   />
                 ))
               : null}

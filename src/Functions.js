@@ -1,42 +1,43 @@
 // minimum knowledge needed to derive (almost) all of physics
-// mass g, time s, energy j, dist m, fuck watts and mole and dalton
-export const unitList = [
-  ["Quekto", "q"],
-  ["Ronto", "r"],
-  ["Yokto", "y"],
-  ["Zepto", "z"],
-  ["Atto", "a"],
-  ["Femto", "f"],
-  ["Piko", "p"],
-  ["Nano", "n"],
-  ["Mikro", "u"],
-  ["Milli", "m"],
+// mass g, time s, energy j, dist m, export const fuck = [ "watts", "calories","mole", "dalton"]
+
+export const units = [
+  ["q", "Quekto"],
+  ["r", "Ronto"],
+  ["y", "Yokto"],
+  ["z", "Zepto"],
+  ["a", "Atto"],
+  ["f", "Femto"],
+  ["p", "Piko"],
+  ["n", "Nano"],
+  ["u", "Mikro"],
+  ["m", "Milli"],
   ["", ""],
-  ["Kilo", "K"],
-  ["Mega", "M"],
-  ["Giga", "G"],
-  ["Tera", "T"],
-  ["Peta", "P"],
-  ["Exa", "E"],
-  ["Zetta", "Z"],
-  ["Yotta", "Y"],
-  ["Ronna", "R"],
-  ["Quetta", "Q"],
+  ["K", "Kilo"],
+  ["M", "Mega"],
+  ["G", "Giga"],
+  ["T", "Tera"],
+  ["P", "Peta"],
+  ["E", "Exa"],
+  ["Z", "Zetta"],
+  ["Y", "Yotta"],
+  ["R", "Ronna"],
+  ["Q", "Quetta"],
 ];
 
 export function format(n, short = false) {
   const zeroIndex = 10;
   const nn = parseFloat(n).toExponential(2).split(/e/);
   let u = Math.floor(+nn[1] / 3) + zeroIndex;
-  if (u > unitList.length - 1) {
-    u = unitList.length - 1;
+  if (u > units.length - 1) {
+    u = units.length - 1;
   } else if (u < 0) {
     u = 0;
   }
   return (
     (nn[0] * Math.pow(10, +nn[1] - (u - zeroIndex) * 3)).toFixed(1) +
     " " +
-    unitList[u][short ? 1 : 0]
+    units[u][short ? 0 : 1]
   );
 }
 
@@ -56,6 +57,14 @@ export function energyToMass(joule) {
 
 export function massToEnergy(mass) {
   return (mass / 1000) * Math.pow(speedOfLight(), 2);
+}
+
+export function waveFunction(jigglyGoo = {}) {
+  return (
+    <mesh>
+      <meshBasicMaterial attach="material" color="#0090e6" wireframe />
+    </mesh>
+  );
 }
 
 export function jigglyGoos(n) {
@@ -84,7 +93,6 @@ export function jigglyGoos(n) {
       wypos: 1,
       shells: [1],
       electron_configuration: "1s1",
-      electron_configuration_semantic: "1s1",
       electron_affinity: 72.769,
       electronegativity_pauling: 2.2,
       ionization_energies: [1312],
@@ -116,7 +124,6 @@ export function jigglyGoos(n) {
       wypos: 1,
       shells: [2],
       electron_configuration: "1s2",
-      electron_configuration_semantic: "1s2",
       electron_affinity: -48,
       electronegativity_pauling: null,
       ionization_energies: [2372.3, 5250.5],
@@ -148,7 +155,6 @@ export function jigglyGoos(n) {
       wypos: 2,
       shells: [2, 1],
       electron_configuration: "1s2 2s1",
-      electron_configuration_semantic: "[He] 2s1",
       electron_affinity: 59.6326,
       electronegativity_pauling: 0.98,
       ionization_energies: [520.2, 7298.1, 11815],
@@ -180,7 +186,6 @@ export function jigglyGoos(n) {
       wypos: 2,
       shells: [2, 2],
       electron_configuration: "1s2 2s2",
-      electron_configuration_semantic: "[He] 2s2",
       electron_affinity: -48,
       electronegativity_pauling: 1.57,
       ionization_energies: [899.5, 1757.1, 14848.7, 21006.6],
@@ -211,7 +216,6 @@ export function jigglyGoos(n) {
       wypos: 2,
       shells: [2, 3],
       electron_configuration: "1s2 2s2 2p1",
-      electron_configuration_semantic: "[He] 2s2 2p1",
       electron_affinity: 26.989,
       electronegativity_pauling: 2.04,
       ionization_energies: [800.6, 2427.1, 3659.7, 25025.8, 32826.7],
@@ -242,7 +246,6 @@ export function jigglyGoos(n) {
       wypos: 2,
       shells: [2, 4],
       electron_configuration: "1s2 2s2 2p2",
-      electron_configuration_semantic: "[He] 2s2 2p2",
       electron_affinity: 121.7763,
       electronegativity_pauling: 2.55,
       ionization_energies: [1086.5, 2352.6, 4620.5, 6222.7, 37831, 47277],
@@ -273,7 +276,6 @@ export function jigglyGoos(n) {
       wypos: 2,
       shells: [2, 5],
       electron_configuration: "1s2 2s2 2p3",
-      electron_configuration_semantic: "[He] 2s2 2p3",
       electron_affinity: -6.8,
       electronegativity_pauling: 3.04,
       ionization_energies: [1402.3, 2856, 4578.1, 7475, 9444.9, 53266.6, 64360],
@@ -304,7 +306,6 @@ export function jigglyGoos(n) {
       wypos: 2,
       shells: [2, 6],
       electron_configuration: "1s2 2s2 2p4",
-      electron_configuration_semantic: "[He] 2s2 2p4",
       electron_affinity: 140.976,
       electronegativity_pauling: 3.44,
       ionization_energies: [
@@ -338,7 +339,6 @@ export function jigglyGoos(n) {
       wypos: 2,
       shells: [2, 7],
       electron_configuration: "1s2 2s2 2p5",
-      electron_configuration_semantic: "[He] 2s2 2p5",
       electron_affinity: 328.1649,
       electronegativity_pauling: 3.98,
       ionization_energies: [
@@ -373,7 +373,6 @@ export function jigglyGoos(n) {
       wypos: 2,
       shells: [2, 8],
       electron_configuration: "1s2 2s2 2p6",
-      electron_configuration_semantic: "[He] 2s2 2p6",
       electron_affinity: -116,
       electronegativity_pauling: null,
       ionization_energies: [
@@ -407,7 +406,6 @@ export function jigglyGoos(n) {
       wypos: 3,
       shells: [2, 8, 1],
       electron_configuration: "1s2 2s2 2p6 3s1",
-      electron_configuration_semantic: "[Ne] 3s1",
       electron_affinity: 52.867,
       electronegativity_pauling: 0.93,
       ionization_energies: [
@@ -441,7 +439,6 @@ export function jigglyGoos(n) {
       wypos: 3,
       shells: [2, 8, 2],
       electron_configuration: "1s2 2s2 2p6 3s2",
-      electron_configuration_semantic: "[Ne] 3s2",
       electron_affinity: -40,
       electronegativity_pauling: 1.31,
       ionization_energies: [
@@ -475,7 +472,6 @@ export function jigglyGoos(n) {
       wypos: 3,
       shells: [2, 8, 3],
       electron_configuration: "1s2 2s2 2p6 3s2 3p1",
-      electron_configuration_semantic: "[Ne] 3s2 3p1",
       electron_affinity: 41.762,
       electronegativity_pauling: 1.61,
       ionization_energies: [
@@ -509,7 +505,6 @@ export function jigglyGoos(n) {
       wypos: 3,
       shells: [2, 8, 4],
       electron_configuration: "1s2 2s2 2p6 3s2 3p2",
-      electron_configuration_semantic: "[Ne] 3s2 3p2",
       electron_affinity: 134.0684,
       electronegativity_pauling: 1.9,
       ionization_energies: [
@@ -543,7 +538,6 @@ export function jigglyGoos(n) {
       wypos: 3,
       shells: [2, 8, 5],
       electron_configuration: "1s2 2s2 2p6 3s2 3p3",
-      electron_configuration_semantic: "[Ne] 3s2 3p3",
       electron_affinity: 72.037,
       electronegativity_pauling: 2.19,
       ionization_energies: [
@@ -577,7 +571,6 @@ export function jigglyGoos(n) {
       wypos: 3,
       shells: [2, 8, 6],
       electron_configuration: "1s2 2s2 2p6 3s2 3p4",
-      electron_configuration_semantic: "[Ne] 3s2 3p4",
       electron_affinity: 200.4101,
       electronegativity_pauling: 2.58,
       ionization_energies: [
@@ -611,7 +604,6 @@ export function jigglyGoos(n) {
       wypos: 3,
       shells: [2, 8, 7],
       electron_configuration: "1s2 2s2 2p6 3s2 3p5",
-      electron_configuration_semantic: "[Ne] 3s2 3p5",
       electron_affinity: 348.575,
       electronegativity_pauling: 3.16,
       ionization_energies: [
@@ -646,7 +638,6 @@ export function jigglyGoos(n) {
       wypos: 3,
       shells: [2, 8, 8],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6",
-      electron_configuration_semantic: "[Ne] 3s2 3p6",
       electron_affinity: -96,
       electronegativity_pauling: null,
       ionization_energies: [
@@ -680,7 +671,6 @@ export function jigglyGoos(n) {
       wypos: 4,
       shells: [2, 8, 8, 1],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s1",
-      electron_configuration_semantic: "[Ar] 4s1",
       electron_affinity: 48.383,
       electronegativity_pauling: 0.82,
       ionization_energies: [
@@ -714,7 +704,6 @@ export function jigglyGoos(n) {
       wypos: 4,
       shells: [2, 8, 8, 2],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2",
-      electron_configuration_semantic: "[Ar] 4s2",
       electron_affinity: 2.37,
       electronegativity_pauling: 1,
       ionization_energies: [
@@ -749,7 +738,6 @@ export function jigglyGoos(n) {
       wypos: 4,
       shells: [2, 8, 9, 2],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d1",
-      electron_configuration_semantic: "[Ar] 3d1 4s2",
       electron_affinity: 18,
       electronegativity_pauling: 1.36,
       ionization_energies: [
@@ -784,7 +772,6 @@ export function jigglyGoos(n) {
       wypos: 4,
       shells: [2, 8, 10, 2],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d2",
-      electron_configuration_semantic: "[Ar] 3d2 4s2",
       electron_affinity: 7.289,
       electronegativity_pauling: 1.54,
       ionization_energies: [
@@ -819,7 +806,6 @@ export function jigglyGoos(n) {
       wypos: 4,
       shells: [2, 8, 11, 2],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d3",
-      electron_configuration_semantic: "[Ar] 3d3 4s2",
       electron_affinity: 50.911,
       electronegativity_pauling: 1.63,
       ionization_energies: [
@@ -854,7 +840,6 @@ export function jigglyGoos(n) {
       wypos: 4,
       shells: [2, 8, 13, 1],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s1 3d5",
-      electron_configuration_semantic: "[Ar] 3d5 4s1",
       electron_affinity: 65.21,
       electronegativity_pauling: 1.66,
       ionization_energies: [
@@ -889,7 +874,6 @@ export function jigglyGoos(n) {
       wypos: 4,
       shells: [2, 8, 13, 2],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d5",
-      electron_configuration_semantic: "[Ar] 3d5 4s2",
       electron_affinity: -50,
       electronegativity_pauling: 1.55,
       ionization_energies: [
@@ -924,7 +908,6 @@ export function jigglyGoos(n) {
       wypos: 4,
       shells: [2, 8, 14, 2],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d6",
-      electron_configuration_semantic: "[Ar] 3d6 4s2",
       electron_affinity: 14.785,
       electronegativity_pauling: 1.83,
       ionization_energies: [
@@ -959,7 +942,6 @@ export function jigglyGoos(n) {
       wypos: 4,
       shells: [2, 8, 15, 2],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d7",
-      electron_configuration_semantic: "[Ar] 3d7 4s2",
       electron_affinity: 63.898,
       electronegativity_pauling: 1.88,
       ionization_energies: [
@@ -994,7 +976,6 @@ export function jigglyGoos(n) {
       wypos: 4,
       shells: [2, 8, 16, 2],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d8",
-      electron_configuration_semantic: "[Ar] 3d8 4s2",
       electron_affinity: 111.65,
       electronegativity_pauling: 1.91,
       ionization_energies: [
@@ -1029,7 +1010,6 @@ export function jigglyGoos(n) {
       wypos: 4,
       shells: [2, 8, 18, 1],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s1 3d10",
-      electron_configuration_semantic: "[Ar] 3d10 4s1",
       electron_affinity: 119.235,
       electronegativity_pauling: 1.9,
       ionization_energies: [
@@ -1065,7 +1045,6 @@ export function jigglyGoos(n) {
       wypos: 4,
       shells: [2, 8, 18, 2],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10",
-      electron_configuration_semantic: "[Ar] 3d10 4s2",
       electron_affinity: -58,
       electronegativity_pauling: 1.65,
       ionization_energies: [
@@ -1100,7 +1079,6 @@ export function jigglyGoos(n) {
       wypos: 4,
       shells: [2, 8, 18, 3],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p1",
-      electron_configuration_semantic: "[Ar] 3d10 4s2 4p1",
       electron_affinity: 41,
       electronegativity_pauling: 1.81,
       ionization_energies: [578.8, 1979.3, 2963, 6180],
@@ -1131,7 +1109,6 @@ export function jigglyGoos(n) {
       wypos: 4,
       shells: [2, 8, 18, 4],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p2",
-      electron_configuration_semantic: "[Ar] 3d10 4s2 4p2",
       electron_affinity: 118.9352,
       electronegativity_pauling: 2.01,
       ionization_energies: [762, 1537.5, 3302.1, 4411, 9020],
@@ -1162,7 +1139,6 @@ export function jigglyGoos(n) {
       wypos: 4,
       shells: [2, 8, 18, 5],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p3",
-      electron_configuration_semantic: "[Ar] 3d10 4s2 4p3",
       electron_affinity: 77.65,
       electronegativity_pauling: 2.18,
       ionization_energies: [947, 1798, 2735, 4837, 6043, 12310],
@@ -1193,7 +1169,6 @@ export function jigglyGoos(n) {
       wypos: 4,
       shells: [2, 8, 18, 6],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p4",
-      electron_configuration_semantic: "[Ar] 3d10 4s2 4p4",
       electron_affinity: 194.9587,
       electronegativity_pauling: 2.55,
       ionization_energies: [941, 2045, 2973.7, 4144, 6590, 7880, 14990],
@@ -1224,7 +1199,6 @@ export function jigglyGoos(n) {
       wypos: 4,
       shells: [2, 8, 18, 7],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p5",
-      electron_configuration_semantic: "[Ar] 3d10 4s2 4p5",
       electron_affinity: 324.537,
       electronegativity_pauling: 2.96,
       ionization_energies: [1139.9, 2103, 3470, 4560, 5760, 8550, 9940, 18600],
@@ -1256,7 +1230,6 @@ export function jigglyGoos(n) {
       wypos: 4,
       shells: [2, 8, 18, 8],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6",
-      electron_configuration_semantic: "[Ar] 3d10 4s2 4p6",
       electron_affinity: -96,
       electronegativity_pauling: 3,
       ionization_energies: [
@@ -1292,7 +1265,6 @@ export function jigglyGoos(n) {
       wypos: 5,
       shells: [2, 8, 18, 8, 1],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s1",
-      electron_configuration_semantic: "[Kr] 5s1",
       electron_affinity: 46.884,
       electronegativity_pauling: 0.82,
       ionization_energies: [
@@ -1325,7 +1297,6 @@ export function jigglyGoos(n) {
       wypos: 5,
       shells: [2, 8, 18, 8, 2],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2",
-      electron_configuration_semantic: "[Kr] 5s2",
       electron_affinity: 5.023,
       electronegativity_pauling: 0.95,
       ionization_energies: [
@@ -1359,7 +1330,6 @@ export function jigglyGoos(n) {
       wypos: 5,
       shells: [2, 8, 18, 9, 2],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d1",
-      electron_configuration_semantic: "[Kr] 4d1 5s2",
       electron_affinity: 29.6,
       electronegativity_pauling: 1.22,
       ionization_energies: [
@@ -1393,7 +1363,6 @@ export function jigglyGoos(n) {
       wypos: 5,
       shells: [2, 8, 18, 10, 2],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d2",
-      electron_configuration_semantic: "[Kr] 4d2 5s2",
       electron_affinity: 41.806,
       electronegativity_pauling: 1.33,
       ionization_energies: [640.1, 1270, 2218, 3313, 7752, 9500],
@@ -1424,7 +1393,6 @@ export function jigglyGoos(n) {
       wypos: 5,
       shells: [2, 8, 18, 12, 1],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s1 4d4",
-      electron_configuration_semantic: "[Kr] 4d4 5s1",
       electron_affinity: 88.516,
       electronegativity_pauling: 1.6,
       ionization_energies: [652.1, 1380, 2416, 3700, 4877, 9847, 12100],
@@ -1455,7 +1423,6 @@ export function jigglyGoos(n) {
       wypos: 5,
       shells: [2, 8, 18, 13, 1],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s1 4d5",
-      electron_configuration_semantic: "[Kr] 4d5 5s1",
       electron_affinity: 72.1,
       electronegativity_pauling: 2.16,
       ionization_energies: [
@@ -1491,7 +1458,6 @@ export function jigglyGoos(n) {
       wypos: 5,
       shells: [2, 8, 18, 13, 2],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d5",
-      electron_configuration_semantic: "[Kr] 4d5 5s2",
       electron_affinity: 53,
       electronegativity_pauling: 1.9,
       ionization_energies: [702, 1470, 2850],
@@ -1522,7 +1488,6 @@ export function jigglyGoos(n) {
       wypos: 5,
       shells: [2, 8, 18, 15, 1],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s1 4d7",
-      electron_configuration_semantic: "[Kr] 4d7 5s1",
       electron_affinity: 100.96,
       electronegativity_pauling: 2.2,
       ionization_energies: [710.2, 1620, 2747],
@@ -1553,7 +1518,6 @@ export function jigglyGoos(n) {
       wypos: 5,
       shells: [2, 8, 18, 16, 1],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s1 4d8",
-      electron_configuration_semantic: "[Kr] 4d8 5s1",
       electron_affinity: 110.27,
       electronegativity_pauling: 2.28,
       ionization_energies: [719.7, 1740, 2997],
@@ -1584,7 +1548,6 @@ export function jigglyGoos(n) {
       wypos: 5,
       shells: [2, 8, 18, 18],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 4d10",
-      electron_configuration_semantic: "[Kr] 4d10",
       electron_affinity: 54.24,
       electronegativity_pauling: 2.2,
       ionization_energies: [804.4, 1870, 3177],
@@ -1615,7 +1578,6 @@ export function jigglyGoos(n) {
       wypos: 5,
       shells: [2, 8, 18, 18, 1],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s1 4d10",
-      electron_configuration_semantic: "[Kr] 4d10 5s1",
       electron_affinity: 125.862,
       electronegativity_pauling: 1.93,
       ionization_energies: [731, 2070, 3361],
@@ -1646,7 +1608,6 @@ export function jigglyGoos(n) {
       wypos: 5,
       shells: [2, 8, 18, 18, 2],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10",
-      electron_configuration_semantic: "[Kr] 4d10 5s2",
       electron_affinity: -68,
       electronegativity_pauling: 1.69,
       ionization_energies: [867.8, 1631.4, 3616],
@@ -1677,7 +1638,6 @@ export function jigglyGoos(n) {
       wypos: 5,
       shells: [2, 8, 18, 18, 3],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p1",
-      electron_configuration_semantic: "[Kr] 4d10 5s2 5p1",
       electron_affinity: 37.043,
       electronegativity_pauling: 1.78,
       ionization_energies: [558.3, 1820.7, 2704, 5210],
@@ -1708,7 +1668,6 @@ export function jigglyGoos(n) {
       wypos: 5,
       shells: [2, 8, 18, 18, 4],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p2",
-      electron_configuration_semantic: "[Kr] 4d10 5s2 5p2",
       electron_affinity: 107.2984,
       electronegativity_pauling: 1.96,
       ionization_energies: [708.6, 1411.8, 2943, 3930.3, 7456],
@@ -1739,7 +1698,6 @@ export function jigglyGoos(n) {
       wypos: 5,
       shells: [2, 8, 18, 18, 5],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p3",
-      electron_configuration_semantic: "[Kr] 4d10 5s2 5p3",
       electron_affinity: 101.059,
       electronegativity_pauling: 2.05,
       ionization_energies: [834, 1594.9, 2440, 4260, 5400, 10400],
@@ -1770,7 +1728,6 @@ export function jigglyGoos(n) {
       wypos: 5,
       shells: [2, 8, 18, 18, 6],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p4",
-      electron_configuration_semantic: "[Kr] 4d10 5s2 5p4",
       electron_affinity: 190.161,
       electronegativity_pauling: 2.1,
       ionization_energies: [869.3, 1790, 2698, 3610, 5668, 6820, 13200],
@@ -1801,7 +1758,6 @@ export function jigglyGoos(n) {
       wypos: 5,
       shells: [2, 8, 18, 18, 7],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p5",
-      electron_configuration_semantic: "[Kr] 4d10 5s2 5p5",
       electron_affinity: 295.1531,
       electronegativity_pauling: 2.66,
       ionization_energies: [1008.4, 1845.9, 3180],
@@ -1833,7 +1789,6 @@ export function jigglyGoos(n) {
       wypos: 5,
       shells: [2, 8, 18, 18, 8],
       electron_configuration: "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6",
-      electron_configuration_semantic: "[Kr] 4d10 5s2 5p6",
       electron_affinity: -77,
       electronegativity_pauling: 2.6,
       ionization_energies: [1170.4, 2046.4, 3099.4],
@@ -1865,7 +1820,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 18, 8, 1],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s1",
-      electron_configuration_semantic: "[Xe] 6s1",
       electron_affinity: 45.505,
       electronegativity_pauling: 0.79,
       ionization_energies: [375.7, 2234.3, 3400],
@@ -1897,7 +1851,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 18, 8, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2",
-      electron_configuration_semantic: "[Xe] 6s2",
       electron_affinity: 13.954,
       electronegativity_pauling: 0.89,
       ionization_energies: [502.9, 965.2, 3600],
@@ -1929,7 +1882,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 18, 9, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 5d1",
-      electron_configuration_semantic: "[Xe] 5d16s2",
       electron_affinity: 53,
       electronegativity_pauling: 1.1,
       ionization_energies: [538.1, 1067, 1850.3, 4819, 5940],
@@ -1961,7 +1913,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 19, 9, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 5d1 4f1",
-      electron_configuration_semantic: "[Xe] 4f1 5d1 6s2",
       electron_affinity: 55,
       electronegativity_pauling: 1.12,
       ionization_energies: [534.4, 1050, 1949, 3547, 6325, 7490],
@@ -1993,7 +1944,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 21, 8, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f3",
-      electron_configuration_semantic: "[Xe] 4f3 6s2",
       electron_affinity: 93,
       electronegativity_pauling: 1.13,
       ionization_energies: [527, 1020, 2086, 3761, 5551],
@@ -2025,7 +1975,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 22, 8, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f4",
-      electron_configuration_semantic: "[Xe] 4f4 6s2",
       electron_affinity: 184.87,
       electronegativity_pauling: 1.14,
       ionization_energies: [533.1, 1040, 2130, 3900],
@@ -2057,7 +2006,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 23, 8, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f5",
-      electron_configuration_semantic: "[Xe] 4f5 6s2",
       electron_affinity: 12.45,
       electronegativity_pauling: 1.13,
       ionization_energies: [540, 1050, 2150, 3970],
@@ -2089,7 +2037,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 24, 8, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f6",
-      electron_configuration_semantic: "[Xe] 4f6 6s2",
       electron_affinity: 15.63,
       electronegativity_pauling: 1.17,
       ionization_energies: [544.5, 1070, 2260, 3990],
@@ -2121,7 +2068,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 25, 8, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f7",
-      electron_configuration_semantic: "[Xe] 4f7 6s2",
       electron_affinity: 11.2,
       electronegativity_pauling: 1.2,
       ionization_energies: [547.1, 1085, 2404, 4120],
@@ -2153,7 +2099,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 25, 9, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f7 5d1",
-      electron_configuration_semantic: "[Xe] 4f7 5d1 6s2",
       electron_affinity: 13.22,
       electronegativity_pauling: 1.2,
       ionization_energies: [593.4, 1170, 1990, 4250],
@@ -2185,7 +2130,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 27, 8, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f9",
-      electron_configuration_semantic: "[Xe] 4f9 6s2",
       electron_affinity: 112.4,
       electronegativity_pauling: 1.1,
       ionization_energies: [565.8, 1110, 2114, 3839],
@@ -2217,7 +2161,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 28, 8, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f10",
-      electron_configuration_semantic: "[Xe] 4f10 6s2",
       electron_affinity: 33.96,
       electronegativity_pauling: 1.22,
       ionization_energies: [573, 1130, 2200, 3990],
@@ -2249,7 +2192,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 29, 8, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f11",
-      electron_configuration_semantic: "[Xe] 4f11 6s2",
       electron_affinity: 32.61,
       electronegativity_pauling: 1.23,
       ionization_energies: [581, 1140, 2204, 4100],
@@ -2281,7 +2223,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 30, 8, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f12",
-      electron_configuration_semantic: "[Xe] 4f12 6s2",
       electron_affinity: 30.1,
       electronegativity_pauling: 1.24,
       ionization_energies: [589.3, 1150, 2194, 4120],
@@ -2313,7 +2254,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 31, 8, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f13",
-      electron_configuration_semantic: "[Xe] 4f13 6s2",
       electron_affinity: 99,
       electronegativity_pauling: 1.25,
       ionization_energies: [596.7, 1160, 2285, 4120],
@@ -2345,7 +2285,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 8, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14",
-      electron_configuration_semantic: "[Xe] 4f14 6s2",
       electron_affinity: -1.93,
       electronegativity_pauling: 1.1,
       ionization_energies: [603.4, 1174.8, 2417, 4203],
@@ -2377,7 +2316,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 9, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d1",
-      electron_configuration_semantic: "[Xe] 4f14 5d1 6s2",
       electron_affinity: 33.4,
       electronegativity_pauling: 1.27,
       ionization_energies: [523.5, 1340, 2022.3, 4370, 6445],
@@ -2409,7 +2347,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 10, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d2",
-      electron_configuration_semantic: "[Xe] 4f14 5d2 6s2",
       electron_affinity: 17.18,
       electronegativity_pauling: 1.3,
       ionization_energies: [658.5, 1440, 2250, 3216],
@@ -2441,7 +2378,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 11, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d3",
-      electron_configuration_semantic: "[Xe] 4f14 5d3 6s2",
       electron_affinity: 31,
       electronegativity_pauling: 1.5,
       ionization_energies: [761, 1500],
@@ -2473,7 +2409,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 12, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d4",
-      electron_configuration_semantic: "[Xe] 4f14 5d4 6s2",
       electron_affinity: 78.76,
       electronegativity_pauling: 2.36,
       ionization_energies: [770, 1700],
@@ -2505,7 +2440,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 13, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d5",
-      electron_configuration_semantic: "[Xe] 4f14 5d5 6s2",
       electron_affinity: 5.8273,
       electronegativity_pauling: 1.9,
       ionization_energies: [760, 1260, 2510, 3640],
@@ -2537,7 +2471,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 14, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d6",
-      electron_configuration_semantic: "[Xe] 4f14 5d6 6s2",
       electron_affinity: 103.99,
       electronegativity_pauling: 2.2,
       ionization_energies: [840, 1600],
@@ -2569,7 +2502,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 15, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d7",
-      electron_configuration_semantic: "[Xe] 4f14 5d7 6s2",
       electron_affinity: 150.94,
       electronegativity_pauling: 2.2,
       ionization_energies: [880, 1600],
@@ -2601,7 +2533,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 17, 1],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s1 4f14 5d9",
-      electron_configuration_semantic: "[Xe] 4f14 5d9 6s1",
       electron_affinity: 205.041,
       electronegativity_pauling: 2.28,
       ionization_energies: [870, 1791],
@@ -2633,7 +2564,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 18, 1],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s1 4f14 5d10",
-      electron_configuration_semantic: "[Xe] 4f14 5d10 6s1",
       electron_affinity: 222.747,
       electronegativity_pauling: 2.54,
       ionization_energies: [890.1, 1980],
@@ -2665,7 +2595,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 18, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10",
-      electron_configuration_semantic: "[Xe] 4f14 5d10 6s2",
       electron_affinity: -48,
       electronegativity_pauling: 2,
       ionization_energies: [1007.1, 1810, 3300],
@@ -2697,7 +2626,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 18, 3],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p1",
-      electron_configuration_semantic: "[Xe] 4f14 5d10 6s2 6p1",
       electron_affinity: 36.4,
       electronegativity_pauling: 1.62,
       ionization_energies: [589.4, 1971, 2878],
@@ -2729,7 +2657,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 18, 4],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p2",
-      electron_configuration_semantic: "[Xe] 4f14 5d10 6s2 6p2",
       electron_affinity: 34.4204,
       electronegativity_pauling: 1.87,
       ionization_energies: [715.6, 1450.5, 3081.5, 4083, 6640],
@@ -2761,7 +2688,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 18, 5],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p3",
-      electron_configuration_semantic: "[Xe] 4f14 5d10 6s2 6p3",
       electron_affinity: 90.924,
       electronegativity_pauling: 2.02,
       ionization_energies: [703, 1610, 2466, 4370, 5400, 8520],
@@ -2793,7 +2719,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 18, 6],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p4",
-      electron_configuration_semantic: "[Xe] 4f14 5d10 6s2 6p4",
       electron_affinity: 136,
       electronegativity_pauling: 2,
       ionization_energies: [812.1],
@@ -2825,7 +2750,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 18, 7],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p5",
-      electron_configuration_semantic: "[Xe] 4f14 5d10 6s2 6p5",
       electron_affinity: 233,
       electronegativity_pauling: 2.2,
       ionization_energies: [899.003],
@@ -2858,7 +2782,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 18, 8],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6",
-      electron_configuration_semantic: "[Xe] 4f14 5d10 6s2 6p6",
       electron_affinity: -68,
       electronegativity_pauling: 2.2,
       ionization_energies: [1037],
@@ -2890,7 +2813,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 18, 8, 1],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s1",
-      electron_configuration_semantic: "[Rn] 7s1",
       electron_affinity: 46.89,
       electronegativity_pauling: 0.79,
       ionization_energies: [380],
@@ -2922,7 +2844,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 18, 8, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2",
-      electron_configuration_semantic: "[Rn] 7s2",
       electron_affinity: 9.6485,
       electronegativity_pauling: 0.9,
       ionization_energies: [509.3, 979],
@@ -2954,7 +2875,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 18, 9, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 6d1",
-      electron_configuration_semantic: "[Rn] 6d1 7s2",
       electron_affinity: 33.77,
       electronegativity_pauling: 1.1,
       ionization_energies: [499, 1170],
@@ -2986,7 +2906,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 18, 10, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 6d2",
-      electron_configuration_semantic: "[Rn] 6d2 7s2",
       electron_affinity: 112.72,
       electronegativity_pauling: 1.3,
       ionization_energies: [587, 1110, 1930, 2780],
@@ -3018,7 +2937,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 20, 9, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f2 6d1",
-      electron_configuration_semantic: "[Rn] 5f2 6d1 7s2",
       electron_affinity: 53.03,
       electronegativity_pauling: 1.5,
       ionization_energies: [568],
@@ -3050,7 +2968,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 21, 9, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f3 6d1",
-      electron_configuration_semantic: "[Rn] 5f3 6d1 7s2",
       electron_affinity: 50.94,
       electronegativity_pauling: 1.38,
       ionization_energies: [597.6, 1420],
@@ -3082,7 +2999,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 22, 9, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f4 6d1",
-      electron_configuration_semantic: "[Rn] 5f4 6d1 7s2",
       electron_affinity: 45.85,
       electronegativity_pauling: 1.36,
       ionization_energies: [604.5],
@@ -3114,7 +3030,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 24, 8, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f6",
-      electron_configuration_semantic: "[Rn] 5f6 7s2",
       electron_affinity: -48.33,
       electronegativity_pauling: 1.28,
       ionization_energies: [584.7],
@@ -3146,7 +3061,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 25, 8, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f7",
-      electron_configuration_semantic: "[Rn] 5f7 7s2",
       electron_affinity: 9.93,
       electronegativity_pauling: 1.13,
       ionization_energies: [578],
@@ -3178,7 +3092,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 25, 9, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f7 6d1",
-      electron_configuration_semantic: "[Rn] 5f7 6d1 7s2",
       electron_affinity: 27.17,
       electronegativity_pauling: 1.28,
       ionization_energies: [581],
@@ -3210,7 +3123,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 27, 8, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f9",
-      electron_configuration_semantic: "[Rn] 5f9 7s2",
       electron_affinity: -165.24,
       electronegativity_pauling: 1.3,
       ionization_energies: [601],
@@ -3242,7 +3154,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 28, 8, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f10",
-      electron_configuration_semantic: "[Rn] 5f10 7s2",
       electron_affinity: -97.31,
       electronegativity_pauling: 1.3,
       ionization_energies: [608],
@@ -3274,7 +3185,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 29, 8, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f11",
-      electron_configuration_semantic: "[Rn] 5f11 7s2",
       electron_affinity: -28.6,
       electronegativity_pauling: 1.3,
       ionization_energies: [619],
@@ -3306,7 +3216,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 30, 8, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f12",
-      electron_configuration_semantic: "[Rn] 5f12 7s2",
       electron_affinity: 33.96,
       electronegativity_pauling: 1.3,
       ionization_energies: [627],
@@ -3338,7 +3247,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 31, 8, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f13",
-      electron_configuration_semantic: "[Rn] 5f13 7s2",
       electron_affinity: 93.91,
       electronegativity_pauling: 1.3,
       ionization_energies: [635],
@@ -3370,7 +3278,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 32, 8, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14",
-      electron_configuration_semantic: "[Rn] 5f14 7s2",
       electron_affinity: -223.22,
       electronegativity_pauling: 1.3,
       ionization_energies: [642],
@@ -3402,7 +3309,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 32, 8, 3],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 7p1",
-      electron_configuration_semantic: "[Rn] 5f14 7s2 7p1",
       electron_affinity: -30.04,
       electronegativity_pauling: 1.3,
       ionization_energies: [470],
@@ -3434,7 +3340,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 32, 10, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d2",
-      electron_configuration_semantic: "[Rn] 5f14 6d2 7s2",
       electron_affinity: null,
       electronegativity_pauling: null,
       ionization_energies: [580],
@@ -3466,7 +3371,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 32, 11, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d3",
-      electron_configuration_semantic: "*[Rn] 5f14 6d3 7s2",
       electron_affinity: null,
       electronegativity_pauling: null,
       ionization_energies: [],
@@ -3498,7 +3402,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 32, 12, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d4",
-      electron_configuration_semantic: "*[Rn] 5f14 6d4 7s2",
       electron_affinity: null,
       electronegativity_pauling: null,
       ionization_energies: [],
@@ -3530,7 +3433,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 32, 13, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d5",
-      electron_configuration_semantic: "*[Rn] 5f14 6d5 7s2",
       electron_affinity: null,
       electronegativity_pauling: null,
       ionization_energies: [],
@@ -3562,7 +3464,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 32, 14, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d6",
-      electron_configuration_semantic: "*[Rn] 5f14 6d6 7s2",
       electron_affinity: null,
       electronegativity_pauling: null,
       ionization_energies: [],
@@ -3594,7 +3495,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 32, 15, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d7",
-      electron_configuration_semantic: "*[Rn] 5f14 6d7 7s2",
       electron_affinity: null,
       electronegativity_pauling: null,
       ionization_energies: [],
@@ -3626,7 +3526,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 32, 16, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d8",
-      electron_configuration_semantic: "*[Rn] 5f14 6d9 7s1",
       electron_affinity: null,
       electronegativity_pauling: null,
       ionization_energies: [],
@@ -3658,7 +3557,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 32, 17, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d9",
-      electron_configuration_semantic: "*[Rn] 5f14 6d10 7s1",
       electron_affinity: 151,
       electronegativity_pauling: null,
       ionization_energies: [],
@@ -3690,7 +3588,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 32, 18, 2],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d10",
-      electron_configuration_semantic: "*[Rn] 5f14 6d10 7s2",
       electron_affinity: null,
       electronegativity_pauling: null,
       ionization_energies: [],
@@ -3722,7 +3619,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 32, 18, 3],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d10 7p1",
-      electron_configuration_semantic: "*[Rn] 5f14 6d10 7s2 7p1",
       electron_affinity: 66.6,
       electronegativity_pauling: null,
       ionization_energies: [],
@@ -3754,7 +3650,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 32, 18, 4],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d10 7p2",
-      electron_configuration_semantic: "*[Rn] 5f14 6d10 7s2 7p2",
       electron_affinity: null,
       electronegativity_pauling: null,
       ionization_energies: [],
@@ -3786,7 +3681,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 32, 18, 5],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d10 7p3",
-      electron_configuration_semantic: "*[Rn] 5f14 6d10 7s2 7p3",
       electron_affinity: 35.3,
       electronegativity_pauling: null,
       ionization_energies: [],
@@ -3818,7 +3712,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 32, 18, 6],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d10 7p4",
-      electron_configuration_semantic: "*[Rn] 5f14 6d10 7s2 7p4",
       electron_affinity: 74.9,
       electronegativity_pauling: null,
       ionization_energies: [],
@@ -3850,7 +3743,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 32, 18, 7],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d10 7p5",
-      electron_configuration_semantic: "*[Rn] 5f14 6d10 7s2 7p5",
       electron_affinity: 165.9,
       electronegativity_pauling: null,
       ionization_energies: [],
@@ -3882,7 +3774,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 32, 18, 8],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d10 7p6",
-      electron_configuration_semantic: "*[Rn] 5f14 6d10 7s2 7p6",
       electron_affinity: 5.40318,
       electronegativity_pauling: null,
       ionization_energies: [],
@@ -3914,7 +3805,6 @@ export function jigglyGoos(n) {
       shells: [2, 8, 18, 32, 32, 18, 8, 1],
       electron_configuration:
         "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d10 7p6 8s1",
-      electron_configuration_semantic: "*[Uuo] 8s1",
       electron_affinity: 63.87,
       electronegativity_pauling: null,
       ionization_energies: [],
@@ -3928,52 +3818,103 @@ export function jigglyGoos(n) {
 
 export function numberOfImportantJigglyGoos(mass) {
   var atoms = [
-    [12, 100000],
-    [13, 500000],
-    [21, 20],
-    [22, 10000],
-    [24, 100],
-    [25, 1000],
-    [26, 100000],
-    [28, 30],
-    [29, 30],
-    [30, 100],
-    [39, 20],
-    [42, 2],
-    [44, 0.001],
-    [45, 0.0001],
-    [46, 0.0005],
-    [47, 0.08],
-    [50, 2],
-    [57, 14],
-    [58, 15],
-    [59, 1.2],
-    [60, 10],
-    [62, 1.5],
-    [63, 0.7],
-    [64, 1.2],
-    [65, 0.4],
-    [66, 1.2],
-    [67, 0.5],
-    [68, 1],
-    [69, 0.2],
-    [70, 1],
-    [71, 0.2],
-    [74, 1],
-    [76, 0.00005],
-    [77, 0.00001],
-    [78, 0.0005],
-    [79, 0.001],
-    [82, 20],
+    ["H", 100000],
+    ["Li", 500],
+    ["Be", 50],
+    ["B", 100],
+    ["C", 5000],
+    ["N", 100],
+    ["O", 5000000],
+    ["F", 5000],
+    ["Na", 100000],
+    ["Mg", 50000],
+    ["Al", 500000],
+    ["Si", 1000000],
+    ["P", 2500],
+    ["S", 1000],
+    ["Cl", 500],
+    ["K", 100000],
+    ["Ca", 100000],
+    ["Sc", 50],
+    ["Ti", 10000],
+    ["V", 110],
+    ["Cr", 90],
+    ["Mn", 1000],
+    ["Fe", 100000],
+    ["Co", 25],
+    ["Ni", 50],
+    ["Cu", 50],
+    ["Zn", 110],
+    ["Ga", 50],
+    ["Ge", 1],
+    ["As", 1],
+    ["Se", 0.05],
+    ["Br", 0.5],
+    ["Rb", 110],
+    ["Sr", 500],
+    ["Y,", 50],
+    ["Zr", 100],
+    ["Nb", 50],
+    ["Mo", 1],
+    ["Ru", 0.001],
+    ["Rh", 0.0003],
+    ["Pd", 0.0006],
+    ["Ag", 0.075],
+    ["Cd", 0.1],
+    ["In", 0.075],
+    ["Sn", 5],
+    ["Sb", 0.25],
+    ["Te", 0.005],
+    ["I", 0.1],
+    ["Cs", 5],
+    ["Ba", 500],
+    ["La", 45],
+    ["Ce", 55],
+    ["Pr", 7],
+    ["Nd", 25],
+    ["Sm", 5],
+    ["Eu", 0.5],
+    ["Gd", 5],
+    ["Tb", 0.5],
+    ["Dy", 5],
+    ["Ho", 0.5],
+    ["Er", 1],
+    ["Tm", 0.25],
+    ["Yb", 1],
+    ["Lu", 0.25],
+    ["Hf", 5],
+    ["Ta", 1],
+    ["W,", 1],
+    ["Re", 0.0005],
+    ["Os", 0.00005],
+    ["Ir", 0.00001],
+    ["Pt", 0.00075],
+    ["Au", 0.001],
+    ["Hg", 0.05],
+    ["Ti", 0.5],
+    ["Pb", 10],
+    ["Bi", 0.075],
+    ["Th", 5],
+    ["U", 1],
   ];
 
-  for (let index = 0; index < atoms.length; index++) {
-    console.log(
-      jigglyGoos(atoms[index][0]).name,
-      " ",
-      format((mass / jigglyGoos(atoms[index][0]).mass) * atoms[index][1])
-    );
-  }
+  let sum = 0;
+
+  for (let i = 0; i < atoms.length; i++)
+    for (let j = 0; j < 100; j++)
+      if (atoms[i][0] == jigglyGoos(j).symbol)
+        sum += jigglyGoos(j).mass * atoms[i][1];
+
+  let scale = mass / sum;
+
+  for (let i = 0; i < atoms.length; i++)
+    for (let j = 0; j < 100; j++)
+      if (atoms[i][0] == jigglyGoos(j).symbol)
+        console.log(
+          jigglyGoos(j).name,
+          " scaled:",
+          format(jigglyGoos(j).mass * atoms[i][1] * scale)
+        );
 }
 
 export function numberOfJigglyGoos(mass, atomNo) {
@@ -4031,11 +3972,6 @@ export function calToJoule(calories) {
   return calories * 4.184;
 }
 
-/** j*s */
-export function jouleToWatts(joule, time) {
-  return joule / time;
-}
-
 /** g */
 export function electronMass() {
   return 9.1093837139 * Math.pow(10, -28);
@@ -4053,7 +3989,7 @@ export function dayToSeconds() {
 /** j*s */
 export function maxEnergyPerPerson(extra) {
   // upperbound: 4000kcl day (age 25 male height 2m 100 kg)
-  var diet = jouleToWatts(calToJoule(4000), dayToSeconds());
+  var diet = calToJoule(4000) / dayToSeconds();
   return extra ? diet + extra : diet;
 }
 

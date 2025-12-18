@@ -11,7 +11,11 @@ export default function ObjToMesh(props) {
         <mesh
           key={i}
           geometry={o.geometry}
-          scale={[0.5, 0.5, 0.5]}
+          scale={
+            props.scale
+              ? [props.scale, props.scale, props.scale]
+              : [1, 1, 1]
+          }
           rotation={[1, 0, 0]}
         >
           <meshBasicMaterial

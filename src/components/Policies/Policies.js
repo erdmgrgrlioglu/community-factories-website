@@ -20,16 +20,14 @@ export default function Policies(props) {
     GridStack.init(
       {
         cellHeight: "163px",
-        staticGrid: false,
         minRow: 1,
-        float: false,
+        float: true,
         resizable: { handles: "all" },
         columnOpts: {
           columnMax: 500, //cigarettes
           columnWidth: 300,
           layout: "none",
         },
-        alwaysShowResizeHandle: false,
       },
       gridRef.current
     );

@@ -6,10 +6,12 @@ export default function Card(props) {
   return (
     <div className={"grid-stack-item"} onClick={props.onClick}>
       <div className={`${"grid-stack-item-content"} ${classes.card}`}>
-        <div className={classes.title}>{props.title}</div>
+        <div className={classes.title}>
+          {props.value.title ? props.value.title : "Factory"}
+        </div>
         <div className={classes.communities}>
-          {props.communities
-            ? props.communities.map((c, i) => (
+          {props.value.communities
+            ? props.value.communities.map((c, i) => (
                 <div key={i} className={classes.box}>
                   {c}
                 </div>
@@ -17,10 +19,10 @@ export default function Card(props) {
             : "no one is working on this"}
         </div>
         <div className={classes.filler} />
-        {props.energy ? (
+        {props.value.energy ? (
           <div className={classes.energy}>
             <div className={classes.blink}>
-              {format(props.energy) + " Energy Second"}
+              {format(props.value.energy) + " Energy"}
             </div>
           </div>
         ) : null}
