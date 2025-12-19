@@ -7,6 +7,7 @@ import {
   Policies,
   Overlay,
   Zoom,
+  Globe,
 } from "../../components";
 import { GridStack } from "gridstack";
 
@@ -24,7 +25,7 @@ export default function FactoriesPage() {
       title: "toothbrush",
       communities: ["a", "b", "c", "d"],
       energy: "10",
-      object: "objects/tooth-brush.obj",
+      object: { path: "objects/tooth-brush.obj" },
       scale: 0.4,
     },
   ]);
@@ -34,6 +35,7 @@ export default function FactoriesPage() {
       title: "energy",
       communities: ["sun", "SPARC"],
       energy: "4600000000000000",
+      object: { mesh: <Globe /> },
     },
     {
       title: "elements",
@@ -63,7 +65,7 @@ export default function FactoriesPage() {
     {
       title: "atom",
       communities: ["physics"],
-      object: "objects/atom.obj",
+      object: { path: "objects/atom.obj" },
       scale: 4,
     },
   ]);

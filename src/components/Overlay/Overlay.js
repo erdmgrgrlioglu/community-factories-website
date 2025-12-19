@@ -10,7 +10,13 @@ export default function Overlay(props) {
         {props.value.object ? (
           <Renderer
             objects={
-              <ObjToMesh path={props.value.object} scale={props.value.scale} />
+              <>
+                <ObjToMesh
+                  path={props.value.object.path}
+                  scale={props.value.scale}
+                />
+                {props.value.object.mesh ? props.value.object.mesh : null}
+              </>
             }
           />
         ) : (

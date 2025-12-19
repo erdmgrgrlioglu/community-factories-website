@@ -1,5 +1,42 @@
 // minimum knowledge needed to derive (almost) all of physics
 // mass g, time s, energy j, dist m, export const fuck = [ "watts", "calories","mole", "dalton"]
+// conversion constants to atomic units
+
+export const hbar = 1.0;
+export const m_e = 1.0;
+export const a_0 = 1.0;
+export const e = 1.0;
+export const hartree = 1.0;
+export const Eh = hartree;
+
+export const nm = 1.8897261246257702e1;
+export const Å = 1.8897261246257702; // Angstrom
+export const eV = 0.03674932217565499;
+export const ps = 4.134137333518212e4;
+export const picoseconds = 4.134137333518212e4;
+
+export const fs = 4.134137333518212 * 10.0;
+export const femtoseconds = 4.134137333518212 * 10.0;
+
+export const V = 0.03674932217565499;
+export const V_m = 1.9446903811488876e-12;
+export const T = 4.254382157326325e-6;
+export const m = 1.8897261246257702e10;
+export const C = 6.241509074460763e18;
+export const s = 4.134137333518173e16;
+export const Hz = 2.4188843265857225e-17;
+export const kg = 1.0977691057577634e30;
+export const J = 2.293712278396328e17;
+export const A = 150.974884744557;
+
+// physical constants in atomic units
+
+export const k = 0.5; // hbar**2 / (2*m_e)
+export const m_p = 1836.1526734400013;
+export const μ0 = 0.0006691762566207213;
+export const ε0 = 0.0795774715459477;
+export const c = 137.035999083818;
+export const α = 0.0072973525693;
 
 export const units = [
   ["q", "Quekto"],
@@ -3818,84 +3855,84 @@ export function jigglyGoos(n) {
 
 export function numberOfImportantJigglyGoos(mass) {
   var atoms = [
-    ["H", 100000],
-    ["Li", 500],
-    ["Be", 50],
-    ["B", 100],
-    ["C", 5000],
-    ["N", 100],
-    ["O", 5000000],
-    ["F", 5000],
-    ["Na", 100000],
-    ["Mg", 50000],
-    ["Al", 500000],
-    ["Si", 1000000],
-    ["P", 2500],
-    ["S", 1000],
-    ["Cl", 500],
-    ["K", 100000],
-    ["Ca", 100000],
-    ["Sc", 50],
-    ["Ti", 10000],
-    ["V", 110],
-    ["Cr", 90],
-    ["Mn", 1000],
-    ["Fe", 100000],
-    ["Co", 25],
-    ["Ni", 50],
-    ["Cu", 50],
-    ["Zn", 110],
-    ["Ga", 50],
-    ["Ge", 1],
-    ["As", 1],
-    ["Se", 0.05],
-    ["Br", 0.5],
-    ["Rb", 110],
-    ["Sr", 500],
-    ["Y,", 50],
-    ["Zr", 100],
-    ["Nb", 50],
-    ["Mo", 1],
-    ["Ru", 0.001],
-    ["Rh", 0.0003],
-    ["Pd", 0.0006],
-    ["Ag", 0.075],
-    ["Cd", 0.1],
-    ["In", 0.075],
-    ["Sn", 5],
-    ["Sb", 0.25],
-    ["Te", 0.005],
-    ["I", 0.1],
-    ["Cs", 5],
-    ["Ba", 500],
-    ["La", 45],
-    ["Ce", 55],
-    ["Pr", 7],
-    ["Nd", 25],
-    ["Sm", 5],
-    ["Eu", 0.5],
-    ["Gd", 5],
-    ["Tb", 0.5],
-    ["Dy", 5],
-    ["Ho", 0.5],
-    ["Er", 1],
-    ["Tm", 0.25],
-    ["Yb", 1],
-    ["Lu", 0.25],
-    ["Hf", 5],
-    ["Ta", 1],
-    ["W,", 1],
-    ["Re", 0.0005],
-    ["Os", 0.00005],
-    ["Ir", 0.00001],
-    ["Pt", 0.00075],
-    ["Au", 0.001],
-    ["Hg", 0.05],
-    ["Ti", 0.5],
-    ["Pb", 10],
-    ["Bi", 0.075],
-    ["Th", 5],
-    ["U", 1],
+    ["H", 100000, false],
+    ["Li", 500, false],
+    ["Be", 50, false],
+    ["B", 100, false],
+    ["C", 5000, false],
+    ["N", 100, false],
+    ["O", 5000000, false],
+    ["F", 5000, false],
+    ["Na", 100000, false],
+    ["Mg", 50000, true],
+    ["Al", 500000, true],
+    ["Si", 1000000, false],
+    ["P", 2500, false],
+    ["S", 1000, false],
+    ["Cl", 500, false],
+    ["K", 100000, false],
+    ["Ca", 100000, false],
+    ["Sc", 50, false],
+    ["Ti", 10000, true],
+    ["V", 110, false],
+    ["Cr", 90, true],
+    ["Mn", 1000, true],
+    ["Fe", 100000, true],
+    ["Co", 25, false],
+    ["Ni", 50, true],
+    ["Cu", 50, true],
+    ["Zn", 110, true],
+    ["Ga", 50, false],
+    ["Ge", 1, false],
+    ["As", 1, false],
+    ["Se", 0.05, false],
+    ["Br", 0.5, false],
+    ["Rb", 110, false],
+    ["Sr", 500, false],
+    ["Y,", 50, true],
+    ["Zr", 100, false],
+    ["Nb", 50, false],
+    ["Mo", 1, true],
+    ["Ru", 0.001, false],
+    ["Rh", 0.0003, false],
+    ["Pd", 0.0006, false],
+    ["Ag", 0.075, false],
+    ["Cd", 0.1, false],
+    ["In", 0.075, false],
+    ["Sn", 5, true],
+    ["Sb", 0.25, false],
+    ["Te", 0.005, false],
+    ["I", 0.1, false],
+    ["Cs", 5, false],
+    ["Ba", 500, false],
+    ["La", 45, true],
+    ["Ce", 55, true],
+    ["Pr", 7, true],
+    ["Nd", 25, true],
+    ["Sm", 5, true],
+    ["Eu", 0.5, true],
+    ["Gd", 5, true],
+    ["Tb", 0.5, true],
+    ["Dy", 5, true],
+    ["Ho", 0.5, true],
+    ["Er", 1, true],
+    ["Tm", 0.25, true],
+    ["Yb", 1, true],
+    ["Lu", 0.25, true],
+    ["Hf", 5, false],
+    ["Ta", 1, false],
+    ["W,", 1, true],
+    ["Re", 0.0005, false],
+    ["Os", 0.00005, false],
+    ["Ir", 0.00001, false],
+    ["Pt", 0.00075, false],
+    ["Au", 0.001, false],
+    ["Hg", 0.05, false],
+    ["Ti", 0.5, false],
+    ["Pb", 10, true],
+    ["Bi", 0.075, false],
+    ["Th", 5, false],
+    ["U", 1, false],
   ];
 
   let sum = 0;
@@ -3908,26 +3945,28 @@ export function numberOfImportantJigglyGoos(mass) {
   let scale = mass / sum;
 
   for (let i = 0; i < atoms.length; i++)
-    for (let j = 0; j < 100; j++)
-      if (atoms[i][0] == jigglyGoos(j).symbol)
-        console.log(
-          jigglyGoos(j).name,
-          " scaled:",
-          format(jigglyGoos(j).mass * atoms[i][1] * scale)
-        );
+    if (atoms[i][2] == true) {
+      for (let j = 0; j < 100; j++)
+        if (atoms[i][0] == jigglyGoos(j).symbol)
+          console.log(
+            jigglyGoos(j).name,
+            " scaled:",
+            format(jigglyGoos(j).mass * atoms[i][1] * scale)
+          );
+    }
 }
 
 export function numberOfJigglyGoos(mass, atomNo) {
   return mass / jigglyGoos(atomNo).mass;
 }
 
-/** j*s */
+/** j */
 export function earthEnergyIn() {
   //https://en.wikipedia.org/wiki/Earth%27s_energy_budget
   return 4600000000000000;
 }
 
-/** j*s */
+/** j */
 export function earthEnergyInUse() {
   var total = 17000000000000;
   var people = maxEnergyPerPerson() * earthPopulation();
@@ -3982,15 +4021,31 @@ export function jouleToEv(joule) {
 }
 
 /** s */
+export function monthToSeconds() {
+  return 2628000;
+}
+
+/** s */
 export function dayToSeconds() {
   return 86400;
 }
 
-/** j*s */
+/** s */
+export function hourToSeconds() {
+  return 3600;
+}
+
+/** j */
 export function maxEnergyPerPerson(extra) {
-  // upperbound: 4000kcl day (age 25 male height 2m 100 kg)
-  var diet = calToJoule(4000) / dayToSeconds();
-  return extra ? diet + extra : diet;
+  // upperbound: 4000kcal -> 4 000 000 cal day (age 25 male height 2m 100 kg)
+  var diet = calToJoule(4000000) / dayToSeconds();
+  // 899 kWh -> 3236400000 j month
+  var household = 3236400000 / monthToSeconds();
+  return (extra ? extra : 0) + diet + household;
+}
+
+export function energyToCurrency(energy) {
+  return (energy * 0.25) / 3600000;
 }
 
 /** g */
@@ -4025,12 +4080,12 @@ export function resourceInUse() {
   return earthResourceInUse();
 }
 
-/** j*s */
+/** j */
 export function energyIn() {
   return earthEnergyIn();
 }
 
-/** j*s */
+/** j */
 export function energyInUse() {
   return earthEnergyInUse();
 }

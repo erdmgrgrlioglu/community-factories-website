@@ -11,6 +11,8 @@ import {
   earthCrustMass,
   numberOfImportantJigglyGoos,
   numberOfJigglyGoos,
+  energyToCurrency,
+  maxEnergyPerPerson,
 } from "../../Functions";
 
 import classes from "./Rates.module.scss";
@@ -79,6 +81,12 @@ export default function Rates() {
           <div>{"Mom"}</div>
           <div className={classes.blink}>
             {format(Math.pow(10, 67)) + " Mass"}
+          </div>
+        </div>
+        <div className={classes.row}>
+          <div>{"Energy of 1 Person in Fake Money"}</div>
+          <div className={classes.blink}>
+            {energyToCurrency(maxEnergyPerPerson()) + " $"}
           </div>
         </div>
       </div>
