@@ -1,0 +1,7 @@
+@use "/src/utilities/theme";
+
+.test {
+  height: calc(100% - 120px);
+  width: 100%;
+  padding: 60px 0px;
+}

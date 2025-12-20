@@ -1,62 +1,132 @@
 import { useFrame } from "@react-three/fiber";
 import { OrbitControls, Html } from "@react-three/drei";
 import { Renderer } from "../../components";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
-function complexToHsl(Z) {
+import classes from "./Test.module.scss";
+
+function complexToRgba(Z) {
   var r = Math.abs(Z[0]);
   var angle = Math.atan2(Z[0], Z[1]);
 
-  var h = (angle + Math.PI) / (2 * Math.PI);
-  var s = 1.0;
-  var l = r / 1.0;
+  return [
+    (angle + Math.PI) / (2 * Math.PI),
+    1.0,
+    Math.max(0, Math.min(r / 1.0, 1)),
+  ]; //hsv
 }
 
 function HamiltonianSpace(props) {
-  const [color, setColor] = useState(["#000000", 0.1]);
   const ref = useRef();
+  const count = Math.pow(props.resolution, 3);
 
   // set
-  //const [V, setV] = useState(); //props.potential(particle_system));
-  //useEffect(() => {
-  //  //props.particle_system.buildMatrixOperators(this);
-  //}, []);
+  const [colors, setColors] = useState(
+    new Float32Array(count * 4).map(
+      (v, i) => (i % 4 == 3 ? Math.random() : Math.random()) //complexToRgba([0, -1]);
+    )
+  );
+
+  // this is ugly
+  const [positions, setPositions] = useState(() => {
+    const pos = [];
+    for (let x = 0; x < props.resolution; x++)
+      for (var y = 0; y < props.resolution; y++)
+        for (var z = 0; z < props.resolution; z++)
+          pos.push(
+            x - (props.resolution - 1) / 2,
+            y - (props.resolution - 1) / 2,
+            z - (props.resolution - 1) / 2
+          );
+    return new Float32Array(pos);
+  });
+
+  const [V, setV] = useState(); //props.particle_system;
 
   // solve
   useFrame(({ clock }, delta) => {
     if (ref.current) {
       console.log("Took", delta, "seconds");
-      setColor([
-        "#" +
-          (Math.random() * 9).toFixed() +
-          "" +
-          (Math.random() * 9).toFixed() +
-          "" +
-          (Math.random() * 9).toFixed() +
-          +"" +
-          (Math.random() * 9).toFixed() +
-          "" +
-          (Math.random() * 9).toFixed(),
-        1,
-      ]);
+      setColors(
+        colors.map((v, i) => (i % 4 == 3 ? Math.random() : Math.random())) //complexToRgba([0, -1]);
+      );
+      ref.current.geometry.attributes.color.needsUpdate = true;
     }
   });
-  complexToHsl([0, -1]);
-
-  const count = 1000000;
-  const positions = new Float32Array(count * 3);
-  for (let i = 0; i < count * 3; i++) {
-    positions[i] = (Math.random() - 0.5) * 4;
-  }
 
   // visualise
   return (
-    <group ref={ref}>
-      <mesh scale={[4, 4, 4]}>
+    <group>
+      <mesh scale={[props.resolution, props.resolution, props.resolution]}>
         <boxGeometry attach="geometry" />
         <meshBasicMaterial attach="material" color="#0090e6" wireframe />
       </mesh>
-      <points>
+      <Html
+        style={{
+          pointerEvents: "none",
+          color: "#0090e6",
+        }}
+        position={[
+          props.resolution / 2 + (props.resolution * 5) / 100,
+          -props.resolution / 2,
+          -(props.resolution / 2 + (props.resolution * 5) / 100),
+        ]}
+        children={props.extent}
+        center
+      />
+      <Html
+        style={{
+          pointerEvents: "none",
+          color: "#0090e6",
+        }}
+        position={[
+          0,
+          -props.resolution / 2,
+          -(props.resolution / 2 + (props.resolution * 5) / 100),
+        ]}
+        children={"Å"}
+        center
+      />
+      <Html
+        style={{
+          pointerEvents: "none",
+          color: "#0090e6",
+        }}
+        position={[
+          -(props.resolution / 2 + (props.resolution * 5) / 100),
+          -(props.resolution / 2),
+          -(props.resolution / 2 + (props.resolution * 5) / 100),
+        ]}
+        children={-props.extent}
+        center
+      />
+      <Html
+        style={{
+          pointerEvents: "none",
+          color: "#0090e6",
+        }}
+        position={[
+          -(props.resolution / 2 + (props.resolution * 5) / 100),
+          -props.resolution / 2,
+          0,
+        ]}
+        children={"Å"}
+        center
+      />
+      <Html
+        style={{
+          pointerEvents: "none",
+          color: "#0090e6",
+        }}
+        position={[
+          -(props.resolution / 2 + (props.resolution * 5) / 100),
+          -props.resolution / 2,
+          props.resolution / 2 + (props.resolution * 5) / 100,
+        ]}
+        children={props.extent}
+        center
+      />
+      <points ref={ref}>
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
@@ -64,13 +134,18 @@ function HamiltonianSpace(props) {
             count={count}
             itemSize={3}
           />
+          <bufferAttribute
+            attach="attributes-color"
+            array={colors}
+            count={count}
+            itemSize={4}
+          />
         </bufferGeometry>
         <pointsMaterial
           attach="material"
-          color={color[0]}
+          vertexColors={true}
           transparent={true}
-          opacity={color[1]}
-          size={0.01}
+          size={1}
         />
       </points>
     </group>
@@ -78,14 +153,19 @@ function HamiltonianSpace(props) {
 }
 
 export default function TestPage(props) {
+  const resolution = 40;
+
   return (
-    <Renderer
-      objects={
-        <>
-          <OrbitControls minDistance={5} maxDistance={100} makeDefault />
-          <HamiltonianSpace />
-        </>
-      }
-    />
+    <div className={classes.test}>
+      <Renderer
+        position={[resolution, resolution, resolution]}
+        objects={
+          <>
+            <OrbitControls minDistance={5} maxDistance={100} makeDefault />
+            <HamiltonianSpace resolution={resolution} extent={2} />
+          </>
+        }
+      />
+    </div>
   );
 }

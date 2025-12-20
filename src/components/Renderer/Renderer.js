@@ -7,7 +7,11 @@ import classes from "./Renderer.module.scss";
 export default function Renderer(props) {
   return (
     <div className={classes.renderer}>
-      <Canvas>
+      <Canvas
+        camera={{
+          position: props.position,
+        }}
+      >
         <Suspense fallback={null}>
           <Physics normalIndex={2} gravity={[0, 0]}>
             {props.objects}
