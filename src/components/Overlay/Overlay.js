@@ -1,4 +1,4 @@
-import { ObjToMesh } from "../meshes";
+import { ObjToMesh } from "../three";
 import Renderer from "../Renderer/Renderer";
 import classes from "./Overlay.module.scss";
 
@@ -9,6 +9,7 @@ export default function Overlay(props) {
         <div className={classes.title}>{props.value.title}</div>
         {props.value.object ? (
           <Renderer
+            cameraDistance={props.value.object.cameraDistance}
             objects={
               <>
                 <ObjToMesh

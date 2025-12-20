@@ -9,7 +9,7 @@ export default function Renderer(props) {
     <div className={classes.renderer}>
       <Canvas
         camera={{
-          position: props.position,
+          position: props.cameraDistance,
         }}
       >
         <Suspense fallback={null}>

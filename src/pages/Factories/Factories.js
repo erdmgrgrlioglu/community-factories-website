@@ -16,6 +16,8 @@ import { jigglyGoos, units } from "../../Functions";
 import classes from "./Factories.module.scss";
 import "gridstack/dist/gridstack.min.css";
 import "./Factories.css";
+import { HamiltonianSpace } from "../../components/three";
+import { OrbitControls } from "@react-three/drei";
 
 export default function FactoriesPage() {
   const [overlay, setOverlay] = useState(null);
@@ -65,7 +67,15 @@ export default function FactoriesPage() {
     {
       title: "atom",
       communities: ["physics"],
-      object: { path: "objects/atom.obj" },
+      object: {
+        cameraDistance: 20,
+        mesh: (
+          <>
+            <HamiltonianSpace resolution={20} extent={2} />
+            <OrbitControls />
+          </>
+        ),
+      },
       scale: 4,
     },
   ]);

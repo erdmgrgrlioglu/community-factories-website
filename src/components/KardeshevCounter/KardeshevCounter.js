@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Globe } from "../meshes";
+import { Globe } from "../three";
 import Renderer from "../Renderer/Renderer";
 import classes from "./KardeshevCounter.module.scss";
 import { kardeshevNumber } from "../../Functions";
